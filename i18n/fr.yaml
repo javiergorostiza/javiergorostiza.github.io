@@ -17,16 +17,16 @@
   translation: "Cool"
 - id: "logo_text2"
   translation: "Nom"
-  
+
 ## General
 - id: "skipToMainContent"
   translation: "Aller au contenu principal"
-- id: "toggle_navigation" 
+- id: "toggle_navigation"
   translation: "Basculer la navigation"
 
 ## Footer
 - id: "footer_notice"
-  translation: "© Adritian. Thème gratuit Hugo par Adrián Moreno Peña."
+  translation: "© javiergorostiza"
 - id: "language"
   translation: "Langue"
 - id: "toggle_theme"

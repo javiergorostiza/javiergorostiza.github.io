@@ -1,6 +1,8 @@
-baseURL = "https://adritian-demo.vercel.app/"
-title = "Adritian Demo"
+baseURL = "javiergorostiza.github.io/"
+title = "Javier Gorostiza"
 languageCode = "en"
+
+uglyurls = false
 
 # Exclude footer section from generating list pages (index.html and index.xml)
 [outputs]
@@ -63,19 +65,20 @@ target = "assets/css/bootstrap-print.css"
 
 
 [params]
-title = 'Adritian - a high performance hugo theme by Adrián Moreno'
-description = 'This hugo theme (Adritian) is based on Bootstrap and has features that make it suitable for a personal site, a portfolio or other kind of Single Page Applications.'
+title = 'Javier Gorostiza - paramstitle Personal Website'
+description = 'This is the personal website / CV / Blog / portfolio for Javier Gorostiza.'
 images = ['/img/og-img.png']
-sections = [
-  "showcase",
-  "about",
-  "education",
-  "experience",
-  "client-and-work",
-  "testimonial",
-  "contact",
-  "newsletter",
-]
+#sections = [
+#  "cover",
+#  "showcase",
+#  "about",
+#  "education",
+#  "experience",
+#  "client-and-work",
+#  "testimonial",
+#  "contact",
+#  "newsletter",
+#]
 # If you want to display an image logo in the header, you can add it here
 # logo = '/img/hugo.svg'
 
@@ -101,7 +104,7 @@ code = "GTM-XXXXX"
 enabled = false
 
 [build]
-writeStats = true
+writeStats = false
 
 [build.buildStats]
 enabledFor = ["scss"]
@@ -112,7 +115,7 @@ enable = true
 
 [params.languages.selector.disable]
 footer = false
-header = false
+header = true
 mobileHeader = false
 
 [languages]
@@ -126,62 +129,28 @@ weight = 0
 
 [languages.en.menus]
 [[languages.en.menus.header]]
-name = "Home"
-URL = "/"
-weight = 1
-[[languages.en.menus.header]]
 name = 'About'
 URL = '#about'
 weight = 2
 [[languages.en.menus.header]]
-name = 'Skills'
-URL = '/skills'
-weight = 3
-[[languages.en.menus.header]]
-name = 'Portfolio'
-URL = '#portfolio'
+name = 'Data-Viz'
+URL = '/data-viz'
 weight = 4
-#  [[languages.en.menus.header]]
-#  name = "Experience"
-#  URL = "#experience"
-#  weight = 4
 
 [[languages.en.menus.header]]
-name = "How to"
+name = "GIS"
+URL = "/gis"
+weight = 3
+
+[[languages.en.menus.header]]
+name = "Blog"
 URL = "/blog"
 weight = 5
 
 [[languages.en.menus.header]]
-pre = "email"
-name = "email"
-URL = "#contact"
-weight = 6
-
-[[languages.en.menus.header]]
-pre = "search"
-name = "Search"
-URL = "/search"
-weight = 7
-
-[[languages.en.menus.footer]]
-name = "Home"
-URL = "/"
-weight = 1
-
-[[languages.en.menus.footer]]
-name = "About"
-URL = "#about"
-weight = 2
-
-[[languages.en.menus.footer]]
 name = "Portfolio"
-URL = "#portfolio"
-weight = 3
-
-[[languages.en.menus.footer]]
-name = "Contact"
-URL = "#contact"
-weight = 4
+URL = "/portfolio"
+weight = 6
 
 
 [languages.es]
@@ -340,7 +309,9 @@ URL = "js/library/fontfaceobserver.js"
 # SCSS Plugins
 [[params.plugins.scss]]
 URL = "scss/adritian.scss"
-
+# Custom SCSS for JavierGorostiza
+[[params.plugins.scss]]
+URL = "scss/custom.scss"
 
 # theme/color style
 [params.colorTheme]
@@ -358,7 +329,7 @@ URL = "scss/adritian.scss"
 
 [params.colorTheme.selector.disable]
 footer = false
-header = false
+header = true
 mobileHeader = false
 ## by default we allow override AND automatic selection
 

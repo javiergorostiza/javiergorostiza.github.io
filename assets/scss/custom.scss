@@ -1,0 +1,193 @@
+/* ---- Base Theme Color ---- */
+$base-color: #6EA8FE;
+
+/* ---- Header Font size ---- */
+@media (min-width: 992px) {
+  h1, .h1 {
+    margin-bottom: 10px; }
+  h2, .h2 {
+    margin-bottom: 10px;
+    font-size: 48px; }
+}
+
+/* ---- Header Nav-bar ---- */
+.header .navbar-brand span:first-child {
+  white-space: pre;
+  word-spacing: -3.5px;
+//  color: #478079;
+  color: #859de2;
+//  color: #89cf8dcf;
+}
+
+@media (min-width: 992px) {
+  .header {
+    padding-top: 10px; /* 15px;*/
+  }
+}
+
+/* ---- Cover ---- */
+.cover {
+  width:100vw;
+  position: relative;
+  padding:20px;
+  max-width: 2000px; // Or whatever matches your other sections (e.g., 1320px)
+  margin-left: auto;
+  margin-right: auto;
+}
+.cover img {
+  width: 100%;
+  max-height: 480px;
+  object-fit: cover;
+  object-position: center;
+  display:block;
+  /*filter: sepia(50%) hue-rotate(80deg) saturate(900%) brightness(50%);*/
+  /*filter: saturate(300%);*/
+}
+
+#cover-slogan {
+  position: absolute; /* Positions it relative to #cover */
+  top: 10%; /* Move the text 20% down */
+  left: 10%; /* Move the text 5% to the right */
+  /*transform: translate(-50%, -50%); /* Center it precisely */
+  display: inline-block;
+  width: 39%;
+  max-width: 50%;
+  text-align: left;
+  font-size: 2rem; /* Adjust size as needed */
+  /*background: rgba(50, 0, 0, 0.5); /* Optional: Add a semi-transparent background */
+  background: rgba(0, 0, 0, 0.5);
+  padding: 20px 20px 0px 20px;
+  border-radius: 15px; /* Optional: Rounded corners */
+  background-blend-mode: overlay;
+  /*mix-blend-mode: difference;*/
+}
+
+#cover #cover-slogan p {
+  font-size: clamp(2rem, 6vw, 7rem);
+  font-weight: 600;
+  line-height: 0.85;
+  letter-spacing: -0.02em;
+  color: hsl(40, 100, 50) !important;
+}
+
+/* ---- showcase blocks ---- */
+.left-align {
+  display: block;
+  text-align: left;
+}
+
+.right-align {
+  display: block;
+  text-align: right;
+}
+
+/* get rid of social links icons top margin: */
+.platform-links {
+  margin-top: 5px;
+}
+
+/* ---- Layout Margins Overides ---- */
+@media only screen and (min-width: 992px) {
+  .rad-showcase {
+    padding-top: 0px;
+  }
+}
+
+@media (min-width: 968px) {
+  .rad-showcase {
+    min-height: 250px; // Needed to override adritian.css
+    padding-top: 0px;
+    margin-bottom: 0;
+    margin-top: 60px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .rad-showcase {
+    min-height: 250px; // Needed to override adritian.css
+    padding-top: 0;
+    margin-bottom: 0;
+    margin-top: 60px;
+  }
+}
+
+/* ---- Sections Margins ---- */
+@media (min-width: 992px) {
+  .section {
+    padding-top: 0px;
+    margin-top: 70px;
+  }
+}
+
+.section:last-of-type { // Leave a little margin after the last section just before the footer.
+  margin-bottom: 50px;
+}
+
+/* ---- About ---- */
+#about {
+    margin-top: 10px;
+}
+
+.my-auto {
+    margin-left: 10%;
+    width: 40%;
+}
+
+#about img {
+  max-height: 350px;
+}
+
+.section div[class*="col-"] img.image-left-overflow { // Override profile pic left margin.
+    margin-left: 0px; // -120px;
+}
+
+
+/* ---- Education ---- */
+.education::before {
+  left: 90px;
+  top: 0;
+  width: 100px;
+  height: 90%;
+  z-index: -1;
+  transform: skew(-25deg);
+}
+
+[data-bs-theme="dark"] .education::before {
+  background-color: #2d2d2d !important;
+}
+
+/* ---- Blog Titles ---- */
+[data-bs-theme="dark"] .blog .post .post-title a {
+  color: #6ea8fe;
+}
+
+.blog .post .post-title a {
+  color: #6ea8fe;
+}
+
+/* ---- Blog Tags ---- */
+ul.tags li::before{
+  width: 0px;
+}
+
+ul.tags li {
+  background-color: #ffffff12;
+  font-size: 1.2rem;
+  border-radius: 0.8rem;
+  padding: 0.4em 0.8em 0.4em 0.8em
+}
+
+ul.tags li:hover {
+  background-color: #ffffff1f;
+}
+
+// --- Footer --- //
+.footer {
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+// --- Light Theme --- //
+[data-bs-theme="light"] body {
+  background-color: #dfdfdf;
+}

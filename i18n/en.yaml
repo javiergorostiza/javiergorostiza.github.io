@@ -1,25 +1,25 @@
 ## Meta tags
 - id: "meta_title"
-  translation: "Adritian - a high performance hugo theme by Adrián Moreno"
+  translation: "Javier Gorostiza - Personal Website / CV / Blog"
 - id: "meta_description"
-  translation: "This hugo theme (Adritian) is based on Bootstrap and has features that make it suitable for a personal site, a portfolio or other kind of Single Page Applications."
+  translation: "This is the personal website and portfolio of Javier Gorostiza. CV, Blog, and research projects also included."
 - id: "meta_keywords"
-  translation: "hugo, theme, bootstrap, adritian, adrian moreno, personal site, portfolio, single page application"
+  translation: "personal website, portfolio, dossier, cv, curriculum, blog, research"
 - id: "meta_author"
-  translation: "Adrián Moreno Peña"
+  translation: "Javier Gorostiza"
 - id: "meta_image"
   translation: "/img/general/og-image.jpg"
 
 ## Header
 
 - id: "logo_alt"
-  translation: "Adritian logo"
+  translation: "Javier Gorostiza logo"
 
 - id: "logo_text1"
-  translation: "Adritian"
+  translation: "[ Javier ]&nbsp"
 
 - id: "logo_text2"
-  translation: "Demo"
+  translation: "Gorostiza"
 
 ## General
 - id: "skipToMainContent"
@@ -30,7 +30,7 @@
 
 ## Footer
 - id: "footer_notice"
-  translation: "© Adritian. Free Hugo theme by Adrián Moreno Peña."
+  translation: "© javiergorostiza"
 
 - id: "language"
   translation: "Language"
@@ -47,7 +47,7 @@
 
 ## Homepage head title
 - id: "head_title"
-  translation: "Demo site for Adritian - a high performance hugo theme by Adrián Moreno"
+  translation: "Javier Gorostiza - Personal Website"
 
 - id: "head_description"
   translation: "This hugo theme (Adritian) is based on Bootstrap and has features that make it suitable for a personal site, a portfolio or other kind of Single Page Applications."
@@ -66,7 +66,7 @@
 ## 404 Page
 - id: "404_title"
   translation: "Page not found"
-- id: "404_description"  
+- id: "404_description"
   translation: "Sorry, but the page you were looking for could not be found."
 - id: "404_button"
   translation: "Back to homepage"
