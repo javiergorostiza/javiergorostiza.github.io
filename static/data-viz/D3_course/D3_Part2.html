@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="generator" content="Observable Framework v1.11.0">
+<title>D3 Part2 | Hello Framework</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&amp;display=swap" crossorigin>
+<link rel="preload" as="style" href="../_observablehq/theme-air,near-midnight.6e6037b3.css">
+<link rel="preload" as="style" href="../_observablehq/stdlib/inputs.ea9fd553.css">
+<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&amp;display=swap" crossorigin>
+<link rel="stylesheet" type="text/css" href="../_observablehq/theme-air,near-midnight.6e6037b3.css">
+<link rel="stylesheet" type="text/css" href="../_observablehq/stdlib/inputs.ea9fd553.css">
+<link rel="modulepreload" href="../_observablehq/client.cc5c06ae.js">
+<link rel="modulepreload" href="../_observablehq/runtime.c4c9c1af.js">
+<link rel="modulepreload" href="../_observablehq/stdlib.b89f0aee.js">
+<link rel="modulepreload" href="../_observablehq/stdlib/inputs.3a5e99d2.js">
+<link rel="modulepreload" href="../_npm/d3-dsv@3.0.1/407f7a1f.js">
+<link rel="modulepreload" href="../_npm/d3@7.9.0/7055d4c5.js">
+<link rel="modulepreload" href="../_npm/htl@0.3.1/063eb405.js">
+<link rel="modulepreload" href="../_npm/isoformat@0.2.1/c68fbd73.js">
+<link rel="modulepreload" href="../_npm/d3-array@3.2.4/e95f898e.js">
+<link rel="modulepreload" href="../_npm/d3-axis@3.0.0/d44feff9.js">
+<link rel="modulepreload" href="../_npm/d3-brush@3.0.0/5830b12a.js">
+<link rel="modulepreload" href="../_npm/d3-chord@3.0.1/84d7b8e9.js">
+<link rel="modulepreload" href="../_npm/d3-color@3.1.0/2c0cdfa2.js">
+<link rel="modulepreload" href="../_npm/d3-contour@4.0.2/626bedc4.js">
+<link rel="modulepreload" href="../_npm/d3-delaunay@6.0.4/00c41b5d.js">
+<link rel="modulepreload" href="../_npm/d3-dispatch@3.0.1/b5f7cdc6.js">
+<link rel="modulepreload" href="../_npm/d3-drag@3.0.0/b22c5864.js">
+<link rel="modulepreload" href="../_npm/d3-ease@3.0.1/6f15f633.js">
+<link rel="modulepreload" href="../_npm/d3-fetch@3.0.1/ef1ec490.js">
+<link rel="modulepreload" href="../_npm/d3-force@3.0.0/5e1ff060.js">
+<link rel="modulepreload" href="../_npm/d3-format@3.1.0/5851d7ef.js">
+<link rel="modulepreload" href="../_npm/d3-geo@3.1.1/dcd02767.js">
+<link rel="modulepreload" href="../_npm/d3-hierarchy@3.1.2/f1db2593.js">
+<link rel="modulepreload" href="../_npm/d3-interpolate@3.0.1/034b7bcb.js">
+<link rel="modulepreload" href="../_npm/d3-path@3.1.0/4bb53638.js">
+<link rel="modulepreload" href="../_npm/d3-polygon@3.0.1/bbafde58.js">
+<link rel="modulepreload" href="../_npm/d3-quadtree@3.0.1/aa5b35a8.js">
+<link rel="modulepreload" href="../_npm/d3-random@3.0.1/32c7fec2.js">
+<link rel="modulepreload" href="../_npm/d3-scale@4.0.2/567840a0.js">
+<link rel="modulepreload" href="../_npm/d3-scale-chromatic@3.1.0/cf9b720b.js">
+<link rel="modulepreload" href="../_npm/d3-selection@3.0.0/5dcd62f4.js">
+<link rel="modulepreload" href="../_npm/d3-shape@3.2.0/f8e03c56.js">
+<link rel="modulepreload" href="../_npm/d3-time@3.1.0/5bc129e1.js">
+<link rel="modulepreload" href="../_npm/d3-time-format@4.1.0/19c92b44.js">
+<link rel="modulepreload" href="../_npm/d3-timer@3.0.1/f31b5398.js">
+<link rel="modulepreload" href="../_npm/d3-transition@3.0.1/8debb4ba.js">
+<link rel="modulepreload" href="../_npm/d3-zoom@3.0.0/4b0cc581.js">
+<link rel="modulepreload" href="../_npm/internmap@2.0.3/5eed35fd.js">
+<link rel="modulepreload" href="../_npm/delaunator@5.0.1/e67acb27.js">
+<link rel="modulepreload" href="../_npm/robust-predicates@3.0.2/8ac9039b.js">
+<link rel="icon" href="../_file/observable.1af93621.png" type="image/png" sizes="32x32">
+<script type="module">
+
+import {define} from "../_observablehq/client.cc5c06ae.js";
+import {registerFile} from "../_observablehq/stdlib.b89f0aee.js";
+
+registerFile("../data/iris.csv", {"name":"../data/iris.csv","mimeType":"text/csv","path":"../_file/data/iris.efd937be.csv","lastModified":1695265376496,"size":3712});
+registerFile("../data/mtcars.csv", {"name":"../data/mtcars.csv","mimeType":"text/csv","path":"../_file/data/mtcars.085216ae.csv","lastModified":1695609645483,"size":1699});
+
+define({id: "c4d08030", inputs: ["d3"], outputs: ["myScale"], body: (d3) => {
+const myScale = d3.scaleLinear()
+    .domain([1, 100])     // input data range
+    .range([5, 25])       // output range mapping  (could be circle radius in pixels)
+return {myScale};
+}});
+
+define({id: "da785b88", inputs: ["d3"], outputs: ["myScale"], body: (d3) => {
+const myScale = d3.scaleOrdinal()
+    .domain([1, 50, 100])                           // input data range
+    .range(["steelblue", "orange", "magenta"])      // output range mapping  (could be colors)
+return {myScale};
+}});
+
+define({id: "2fb0b340", inputs: ["FileAttachment"], outputs: ["iris"], body: (FileAttachment) => {
+const iris = FileAttachment("../data/iris.csv").csv();
+return {iris};
+}});
+
+define({id: "805fe774", inputs: ["iris","d3","view"], outputs: ["sepal_values","sepal_extent","linearScale_1"], body: (iris,d3,view) => {
+const sepal_values = iris.map((d) => d.sepalLength);
+const sepal_extent = d3.extent(sepal_values);
+view(iris);
+view(sepal_values);
+view(sepal_extent);
+
+const linearScale_1 = d3.scaleLinear().domain(sepal_extent).range([0, 1]);
+return {sepal_values,sepal_extent,linearScale_1};
+}});
+
+define({id: "06b6bb5d", inputs: ["d3","iris"], outputs: ["linearScale_2"], body: (d3,iris) => {
+const linearScale_2 = d3.scaleLinear()
+                        .domain(d3.extent(iris.map((d) => d.sepalLength)))
+                        .range(0, 1);
+return {linearScale_2};
+}});
+
+define({id: "b63313a2", inputs: ["d3","iris"], outputs: ["extract","linearScale_3"], body: (d3,iris) => {
+const extract = (value, data) => {
+    return data.map((d) => d[value]);
+}
+
+const linearScale_3 = d3.scaleLinear()
+                        .domain(d3.extent(extract("sepalLength", iris)))
+                        .range(0, 1);
+return {extract,linearScale_3};
+}});
+
+define({id: "f949afd2", inputs: ["d3","iris"], outputs: ["sepal_extent"], body: (d3,iris) => {
+const sepal_extent = d3.extent(iris, (d) => d.sepalLength);
+return {sepal_extent};
+}});
+
+define({id: "ca8fac9e", inputs: ["d3","view","htl"], outputs: ["ordinalScale_1","fruit"], body: (d3,view,htl) => {
+const ordinalScale_1 = d3.scaleOrdinal()
+                         .domain(["apple", "orange", "banana"])
+                         .range(["red", "orange", "yellow"])
+
+view(ordinalScale_1("apple"))
+
+const fruit = htl.html`<div style='background-color: ${ordinalScale_1("apple")}'> FruitColor </div>`
+view(fruit)
+return {ordinalScale_1,fruit};
+}});
+
+define({id: "4cf6fff8", inputs: ["iris","view","d3"], outputs: ["species_values","species_set1","species_set","species_unique","ordinalScale_2"], body: (iris,view,d3) => {
+const species_values = iris.map((d) => d.species)
+const species_set1   = new Set(iris.map((d) => d.species)) // same as:
+const species_set    = new Set(species_values);            // but this is not an array, so:
+const species_unique = Array.from(new Set(species_values));
+
+view(species_values);
+view(species_set);
+view(species_unique);
+
+
+const ordinalScale_2 = d3.scaleOrdinal()
+                         .domain(species_unique)
+                         .range(["red", "orange", "yellow"]);
+
+view(ordinalScale_2("setosa"));
+return {species_values,species_set1,species_set,species_unique,ordinalScale_2};
+}});
+
+define({id: "6bc5734b", inputs: ["d3","view"], outputs: ["width","height","margin","svg","group1","rect1"], body: (d3,view) => {
+const width = 600
+const height = 400
+const margin = {top: 20, bottom: 20, left: 20, right: 20}
+
+const svg = d3.create("svg")
+                .attr("width", width + margin.left + margin.right)
+                .attr("height", height + margin.top + margin.bottom)
+                .style("border", "1px dotted #fcba03");
+
+const group1 = svg.append("g")
+                .attr("transform", `translate(${margin.left}, ${margin.top})`)
+
+const rect1 = group1.append("rect")
+                    .attr("width", 40)
+                    .attr("height", 30)
+                    .style("fill", "steelblue")
+
+view(svg.node()) // .node returns the value of the svg object created by d3.create("svg")
+return {width,height,margin,svg,group1,rect1};
+}});
+
+define({id: "ff54cc2d", inputs: ["FileAttachment"], outputs: ["cars"], body: (FileAttachment) => {
+const cars = FileAttachment("../data/mtcars.csv").csv();
+return {cars};
+}});
+
+define({id: "ae3d9ad2", inputs: ["view","cars"], body: (view,cars) => {
+// Inspect Data Object.
+view(cars)
+}});
+
+define({id: "f6ad81e9", inputs: ["d3","width","height","margin","view","cars"], outputs: ["svgCont2"], body: (d3,width,height,margin,view,cars) => {
+// Add a new SVG container:
+const svgCont2 = d3.create("svg")
+                    .attr("width", width)
+                    .attr("height", height + margin.top + margin.bottom)
+
+view(svgCont2.node())
+
+// Add a layer of dots.
+svgCont2.append("g")
+    .selectAll("circle")
+    .data(cars)
+    .join("circle")
+        .attr("cx", d => 10*d.mpg)
+        .attr("cy", d => 0.75*d.hp)
+        .attr("r", 7);
+return {svgCont2};
+}});
+
+define({id: "4ea6802d", inputs: ["view"], outputs: ["Inputs","radiusSlider"], body: async (view) => {
+const Inputs = await import("../_observablehq/stdlib/inputs.3a5e99d2.js");
+
+const radiusSlider = Inputs.range([1, 100], {step: 1, label: "Radius", value: 1});
+view(radiusSlider)
+return {Inputs,radiusSlider};
+}});
+
+define({id: "64de5083", inputs: ["d3","iris","width","height"], outputs: ["xScale","yScale","colorScale"], body: (d3,iris,width,height) => {
+// Setup our data variables.
+const xScale = d3.scaleLinear()
+                        .domain(d3.extent(iris, (d) => d.sepalLength))
+                        .range([0, width]);
+
+const yScale = d3.scaleLinear()
+                        .domain(d3.extent(iris, (d) => d.sepalWidth))
+                        .range([height, 0]);
+
+const colorScale = d3.scaleOrdinal()
+                        .domain(Array.from(new Set
+                                         (iris, (d) => d.species)
+                                         ))
+                        .range(["red", "orange", "yellow"]);
+return {xScale,yScale,colorScale};
+}});
+
+define({id: "576733eb", inputs: ["d3","width","margin","height"], outputs: ["svgCont3","marginsGroup","circlesGroup"], body: (d3,width,margin,height) => {
+// Create a new SVG container.
+const svgCont3 = d3.create("svg")
+                    .attr("width", width + margin.left + margin.right)
+                    .attr("height", height + margin.top + margin.bottom)
+                    .style("border", "2px double #cccccc55");
+
+// And an svg group offset by the margins.
+const marginsGroup = svgCont3.append("g")
+                        .attr("transform", `translate(${margin.left}, ${margin.top})`)
+
+// Make a clear background so we can see the margins of our container.
+marginsGroup.append("g")
+                .append("rect")
+                    .attr("width", width)
+                    .attr("height", height)
+                    .attr("rx", 10)
+                    .attr("ry", 10)
+                    .style("fill", "#cccccc11")
+
+// Make a group for our data circles.
+const circlesGroup = marginsGroup.append("g")
+                            .attr("class", "circles-group");
+return {svgCont3,marginsGroup,circlesGroup};
+}});
+
+define({id: "7c2c8349", inputs: ["circlesGroup","iris","xScale","yScale","radiusSlider","colorScale"], outputs: ["drawPlot"], body: (circlesGroup,iris,xScale,yScale,radiusSlider,colorScale) => {
+// Join data to graphic elements in our SVG.
+// Put it all in a function:
+function drawPlot() {
+circlesGroup
+    .selectAll("circle")
+    .data(iris)
+    .join("circle")
+        .attr("cx", d => xScale(d.sepalLength))
+        .attr("cy", d => yScale(d.sepalWidth))
+        //.attr("cx", d => 50*d.sepalLength)
+        //.attr("cy", d => 100*d.sepalWidth - 150)
+        .attr("r", radiusSlider.value)
+        .style("fill", d => colorScale(d.species));
+        //.style("stroke", "#ff77ee");
+}
+return {drawPlot};
+}});
+
+define({id: "d87e0b5a", inputs: ["radiusSlider","drawPlot"], body: (radiusSlider,drawPlot) => {
+// Call our update drawPlot function every time the slide changes:
+radiusSlider.addEventListener("input", () => {
+  drawPlot();
+});
+}});
+
+define({id: "aa92f87c", inputs: ["drawPlot","view","svgCont3"], body: (drawPlot,view,svgCont3) => {
+// Render our SVG canvas
+drawPlot();
+view(svgCont3.node());
+}});
+
+</script>
+<input id="observablehq-sidebar-toggle" type="checkbox" title="Toggle sidebar">
+<label id="observablehq-sidebar-backdrop" for="observablehq-sidebar-toggle"></label>
+<nav id="observablehq-sidebar">
+  <ol>
+    <label id="observablehq-sidebar-close" for="observablehq-sidebar-toggle"></label>
+    <li class="observablehq-link"><a href="../">Hello Framework</a></li>
+  </ol>
+  <ol>
+    <li class="observablehq-link"><a href="../canvas">Canvas</a></li>
+    <li class="observablehq-link"><a href="../canvas2">Canvas2-streamlined</a></li>
+    <li class="observablehq-link"><a href="../clean">Only basic canvas and shapes.</a></li>
+    <li class="observablehq-link"><a href="../d3_focal_length">D3 Focal Length</a></li>
+    <li class="observablehq-link"><a href="../d3_svg">D3 SVG shapes</a></li>
+    <li class="observablehq-link"><a href="../example-dashboard">Example dashboard</a></li>
+    <li class="observablehq-link"><a href="../example-report">Example report</a></li>
+    <li class="observablehq-link"><a href="../gpt">Color Picker and Rectangle</a></li>
+    <li class="observablehq-link"><a href="../linked_sliders">Linked Sliders (Co-dependant Inputs)</a></li>
+    <li class="observablehq-link"><a href="../reactivity">Inputs Reactivity</a></li>
+    <li class="observablehq-link"><a href="../svg_flatten">Flatten.js</a></li>
+    <li class="observablehq-link"><a href="../testpage">This is a test page</a></li>
+    <li class="observablehq-link"><a href="../three_methods">Three Methods</a></li>
+    <li class="observablehq-link"><a href="../weather">Weather report</a></li>
+    <li class="observablehq-link"><a href="./D3_Part1">D3 Part1</a></li>
+    <li class="observablehq-link observablehq-link-active"><a href="./D3_Part2">D3 Part2</a></li>
+    <li class="observablehq-link"><a href="./D3_Part3">D3 Part3</a></li>
+    <li class="observablehq-link"><a href="../color_scales/color_scales">D3 Color Scales &amp; schemes</a></li>
+    <li class="observablehq-link"><a href="../dataviz/metapi">Metropolitan Museum of Art API</a></li>
+    <li class="observablehq-link"><a href="../flatten.js/flatten_gettingStarted">Flatten Getting Started</a></li>
+    <li class="observablehq-link"><a href="../lenses_optics/focal_length">Notes on Lens Optics</a></li>
+    <li class="observablehq-link"><a href="../color/src/61eaf3946c8b51f0">Color</a></li>
+    <li class="observablehq-link"><a href="../dataviz/WikiData/wikidata-api">Wiki Data API</a></li>
+  </ol>
+</nav>
+<script>{Object.assign(document.createElement("a"),{href:""}).password&&location.replace(location.href);const e=document.querySelector("#observablehq-sidebar"),t=document.querySelector("#observablehq-sidebar-toggle"),r=sessionStorage.getItem("observablehq-sidebar");r?t.checked=r==="true":t.indeterminate=!0;for(const o of document.querySelectorAll("#observablehq-sidebar summary")){const s=o.parentElement;switch(sessionStorage.getItem(`observablehq-sidebar:${o.textContent}`)){case"true":s.open=!0;break;case"false":s.classList.contains("observablehq-section-active")||(s.open=!1);break}}addEventListener("beforeunload",()=>sessionStorage.setItem("observablehq-sidebar-scrolly",`${e.scrollTop}`));const a=sessionStorage.getItem("observablehq-sidebar-scrolly");a!=null&&(e.style.cssText="overflow: hidden;",e.scrollTop=+a,e.style.cssText="");}</script>
+<aside id="observablehq-toc" data-selector="h1:not(:first-of-type)[id], h2:first-child[id], :not(h1) + h2[id]">
+<nav>
+<div>Contents</div>
+<ol>
+<li class="observablehq-secondary-link"><a href="#linear-scales">Linear Scales</a></li>
+<li class="observablehq-secondary-link"><a href="#ordinal-scales">Ordinal Scales</a></li>
+<li class="observablehq-secondary-link"><a href="#svg-canvas">SVG Canvas</a></li>
+<li class="observablehq-secondary-link"><a href="#data-joins">Data Joins</a></li>
+</ol>
+</nav>
+</aside>
+<div id="observablehq-center">
+<main id="observablehq-main" class="observablehq">
+<h1 id="d3-part2" tabindex="-1"><a class="observablehq-header-anchor" href="#d3-part2">D3 Part2</a></h1>
+<p>This session will deal with using D3 scales:</p>
+<ul>
+<li>linear scales -&gt; d3.scaleLinear()</li>
+<li>ordinal scales -&gt; d3.scaleOrdinal()</li>
+</ul>
+<div class="observablehq observablehq--block"><!--:c4d08030:--></div>
+<div class="observablehq observablehq--block"><!--:da785b88:--></div>
+<h2 id="linear-scales" tabindex="-1"><a class="observablehq-header-anchor" href="#linear-scales">Linear Scales</a></h2>
+<p>First we import a dataset: iris.cv and select some of those values as our domain, and decide on an output range.<br>
+We use the .map and d3.extent methods predominantly.</p>
+<!-- The FileAttachment function produces a promise, so we need to change to a new fenced code block to make sure it is resolved. -->
+<div class="observablehq observablehq--block"><!--:2fb0b340:--></div>
+<div class="observablehq observablehq--block"><!--:805fe774:--></div>
+<!-- Instead of breaking out the values and extent into seperate variables, it can all be done inside the scale definition -->
+<div class="observablehq observablehq--block"><!--:06b6bb5d:--></div>
+<!--- And we can even create an 'extract' helper function that does the .map on the array data --->
+<div class="observablehq observablehq--block"><!--:b63313a2:--></div>
+<!--- We don't necesarily need to use .map --->
+<!--- d3.extent also allows the use of a so called accesor function to access our dataset instead of us giving it the relevant array data --->
+<div class="observablehq observablehq--block"><!--:f949afd2:--></div>
+<h2 id="ordinal-scales" tabindex="-1"><a class="observablehq-header-anchor" href="#ordinal-scales">Ordinal Scales</a></h2>
+<div class="observablehq observablehq--block"><!--:ca8fac9e:--></div>
+<p>We will now make another ordinal scale for our species values which are non numerical.</p>
+<div class="observablehq observablehq--block"><!--:4cf6fff8:--></div>
+<h2 id="svg-canvas" tabindex="-1"><a class="observablehq-header-anchor" href="#svg-canvas">SVG Canvas</a></h2>
+<div class="observablehq observablehq--block"><!--:6bc5734b:--></div>
+<h2 id="data-joins" tabindex="-1"><a class="observablehq-header-anchor" href="#data-joins">Data Joins</a></h2>
+<div class="observablehq observablehq--block"><!--:ff54cc2d:--></div>
+<div class="observablehq observablehq--block"><observablehq-loading></observablehq-loading><!--:ae3d9ad2:--></div>
+<div class="observablehq observablehq--block"><!--:f6ad81e9:--></div>
+<h3 id="interactive-scatter-plot" tabindex="-1"><a class="observablehq-header-anchor" href="#interactive-scatter-plot">Interactive scatter-plot</a></h3>
+<div class="observablehq observablehq--block"><!--:4ea6802d:--></div>
+<div class="observablehq observablehq--block"><!--:64de5083:--></div>
+<div class="observablehq observablehq--block"><!--:576733eb:--></div>
+<div class="observablehq observablehq--block"><!--:7c2c8349:--></div>
+<div class="observablehq observablehq--block"><!--:d87e0b5a:--></div>
+<div class="observablehq observablehq--block"><!--:aa92f87c:--></div>
+</main>
+<footer id="observablehq-footer">
+<nav><a rel="prev" href="./D3_Part1"><span>D3 Part1</span></a><a rel="next" href="./D3_Part3"><span>D3 Part3</span></a></nav>
+<div>Built with <a href="https://observablehq.com/" target="_blank" rel="noopener noreferrer">Observable</a> on <a title="2025-03-14T14:26:55">Mar 14, 2025</a>.</div>
+</footer>
+</div>

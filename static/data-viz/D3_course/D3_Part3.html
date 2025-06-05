@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="generator" content="Observable Framework v1.11.0">
+<title>D3 Part3 | Hello Framework</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&amp;display=swap" crossorigin>
+<link rel="preload" as="style" href="../_observablehq/theme-air,near-midnight.6e6037b3.css">
+<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&amp;display=swap" crossorigin>
+<link rel="stylesheet" type="text/css" href="../_observablehq/theme-air,near-midnight.6e6037b3.css">
+<link rel="modulepreload" href="../_observablehq/client.cc5c06ae.js">
+<link rel="modulepreload" href="../_observablehq/runtime.c4c9c1af.js">
+<link rel="modulepreload" href="../_observablehq/stdlib.b89f0aee.js">
+<link rel="modulepreload" href="../_npm/d3-dsv@3.0.1/407f7a1f.js">
+<link rel="modulepreload" href="../_npm/d3@7.9.0/7055d4c5.js">
+<link rel="modulepreload" href="../_npm/htl@0.3.1/063eb405.js">
+<link rel="modulepreload" href="../_npm/d3-array@3.2.4/e95f898e.js">
+<link rel="modulepreload" href="../_npm/d3-axis@3.0.0/d44feff9.js">
+<link rel="modulepreload" href="../_npm/d3-brush@3.0.0/5830b12a.js">
+<link rel="modulepreload" href="../_npm/d3-chord@3.0.1/84d7b8e9.js">
+<link rel="modulepreload" href="../_npm/d3-color@3.1.0/2c0cdfa2.js">
+<link rel="modulepreload" href="../_npm/d3-contour@4.0.2/626bedc4.js">
+<link rel="modulepreload" href="../_npm/d3-delaunay@6.0.4/00c41b5d.js">
+<link rel="modulepreload" href="../_npm/d3-dispatch@3.0.1/b5f7cdc6.js">
+<link rel="modulepreload" href="../_npm/d3-drag@3.0.0/b22c5864.js">
+<link rel="modulepreload" href="../_npm/d3-ease@3.0.1/6f15f633.js">
+<link rel="modulepreload" href="../_npm/d3-fetch@3.0.1/ef1ec490.js">
+<link rel="modulepreload" href="../_npm/d3-force@3.0.0/5e1ff060.js">
+<link rel="modulepreload" href="../_npm/d3-format@3.1.0/5851d7ef.js">
+<link rel="modulepreload" href="../_npm/d3-geo@3.1.1/dcd02767.js">
+<link rel="modulepreload" href="../_npm/d3-hierarchy@3.1.2/f1db2593.js">
+<link rel="modulepreload" href="../_npm/d3-interpolate@3.0.1/034b7bcb.js">
+<link rel="modulepreload" href="../_npm/d3-path@3.1.0/4bb53638.js">
+<link rel="modulepreload" href="../_npm/d3-polygon@3.0.1/bbafde58.js">
+<link rel="modulepreload" href="../_npm/d3-quadtree@3.0.1/aa5b35a8.js">
+<link rel="modulepreload" href="../_npm/d3-random@3.0.1/32c7fec2.js">
+<link rel="modulepreload" href="../_npm/d3-scale@4.0.2/567840a0.js">
+<link rel="modulepreload" href="../_npm/d3-scale-chromatic@3.1.0/cf9b720b.js">
+<link rel="modulepreload" href="../_npm/d3-selection@3.0.0/5dcd62f4.js">
+<link rel="modulepreload" href="../_npm/d3-shape@3.2.0/f8e03c56.js">
+<link rel="modulepreload" href="../_npm/d3-time@3.1.0/5bc129e1.js">
+<link rel="modulepreload" href="../_npm/d3-time-format@4.1.0/19c92b44.js">
+<link rel="modulepreload" href="../_npm/d3-timer@3.0.1/f31b5398.js">
+<link rel="modulepreload" href="../_npm/d3-transition@3.0.1/8debb4ba.js">
+<link rel="modulepreload" href="../_npm/d3-zoom@3.0.0/4b0cc581.js">
+<link rel="modulepreload" href="../_npm/internmap@2.0.3/5eed35fd.js">
+<link rel="modulepreload" href="../_npm/delaunator@5.0.1/e67acb27.js">
+<link rel="modulepreload" href="../_npm/robust-predicates@3.0.2/8ac9039b.js">
+<link rel="icon" href="../_file/observable.1af93621.png" type="image/png" sizes="32x32">
+<script type="module">
+
+import {define} from "../_observablehq/client.cc5c06ae.js";
+import {registerFile} from "../_observablehq/stdlib.b89f0aee.js";
+
+registerFile("../data/aapl.csv", {"name":"../data/aapl.csv","mimeType":"text/csv","path":"../_file/data/aapl.18dc8bf6.csv","lastModified":1728876193011,"size":92399});
+
+define({id: "baafe4a9", inputs: ["html","display"], body: async (html,display) => {
+display(await(
+html.fragment`<!-- Create diagonal line -->
+<svg width=300 height=200 style="border: 1px solid #ccc">
+  <path d='M0,0 L300,200'
+    style="stroke: #999">
+  </path>
+</svg>`
+))
+}});
+
+define({id: "f66413b0", inputs: ["html","display"], body: async (html,display) => {
+display(await(
+html.fragment`<!-- We can set 'overflow: visible' to still visualize elements that are off the canvas -->
+<svg width=300 height=200 style="border: 1px solid #ccc; overflow: visible">
+  <path d='M-200,150 L550,150'
+    style="stroke: #999">
+  </path>
+</svg>`
+))
+}});
+
+define({id: "2faef65d", inputs: ["html","display"], body: async (html,display) => {
+display(await(
+html.fragment`<!-- Close a path with Z -->
+<svg width=300 height=200 style="border: 1px solid #ccc">
+  <path d='M50,150 L150,20 L250,150 Z'
+    style="stroke: #900; fill: none">
+  </path>
+</svg>`
+))
+}});
+
+define({id: "bc5575f8", inputs: ["d3","width","view"], outputs: ["myData1","myData2","xScale","yScale","line1","line2","svgCont1","lineGroup"], body: (d3,width,view) => {
+// Make an array with our data:
+// we will use these values as our Y coordinates,
+// and simply the array indeces as our X coordinates.
+const myData1 = [0, 10, 5, 20]
+const myData2 = [4, 3, 7, 13, 17, 15, 7, 5, 20]
+
+// Define an X and Y scale for our data.
+const xScale = d3.scaleLinear()
+                    .domain([0,10])
+                    .range([0, width]);
+
+const yScale = d3.scaleLinear()
+                    .domain(d3.extent(myData1))
+                    .range([300, 0]);
+
+// Define our line generator:
+const line1 = d3.line()
+                .x((d,i) => xScale(i))
+                .y((d,i) => yScale(d));
+
+// Lets make a new line generator that interpolates points with a curve:
+const line2 = d3.line()
+                .curve(d3.curveBasis)
+                .x((d,i) => xScale(i))
+                .y((d,i) => yScale(d));
+
+
+// Create a new SVG container:
+const svgCont1 = d3.create("svg")
+                    .attr("width", width)
+                    .attr("height", 300);
+view(svgCont1.node())
+
+// Make a group for our single line:
+const lineGroup = svgCont1.append("g")
+                            .attr("class", "line-group");
+
+// Feed our data to a path and append it:
+lineGroup.append("path")
+    .datum(myData1)
+    .attr("d", line1)
+    .style("stroke", "#555")
+    .style("fill", "none");
+
+// Let's make a different line with new data:
+lineGroup.append("path")
+    .datum(myData2)
+    .attr("d", line1)
+    .style("stroke", "#f55")
+    .style("stroke-width", 2)
+    .style("fill", "none");
+
+// Same line as before with curve intepolation:
+lineGroup.append("path")
+    .datum(myData2)
+    .attr("d", line2)
+    .style("stroke", "#55f8")
+    .style("stroke-width", 7)
+    .style("fill", "none");
+return {myData1,myData2,xScale,yScale,line1,line2,svgCont1,lineGroup};
+}});
+
+define({id: "4883380a", inputs: ["FileAttachment"], outputs: ["appleStockData"], body: (FileAttachment) => {
+// Load data:
+const appleStockData = FileAttachment("../data/aapl.csv").csv();
+//import aapl.csv as appleStockData from "npm:@observablehq/sample-datasets";
+return {appleStockData};
+}});
+
+define({id: "bc98cf1d", inputs: ["view","appleStockData"], body: (view,appleStockData) => {
+view(appleStockData)
+}});
+
+define({id: "4b66fa36", inputs: ["d3","view","appleStockData"], outputs: ["width","height","marginTop","marginBottom","marginLeft","marginRight","svgCont2","marginsGroup","chartGroup","xScale","yScale","line3"], body: (d3,view,appleStockData) => {
+// Set container variables:
+const width = 650;
+const height = 300;
+const marginTop = 25;
+const marginBottom = 35;
+const marginLeft = 40;
+const marginRight = 20;
+
+// Create SVG container:
+const svgCont2 = d3.create("svg")
+                    .attr("width", width + marginLeft + marginRight)
+                    .attr("height", height + marginTop + marginBottom);
+view(svgCont2.node())
+
+// Make our margins group:
+const marginsGroup = svgCont2.append("g")
+                        .attr("transform", `translate(${marginLeft}, ${marginTop})`)
+                        .attr("class", "margins")
+
+// Make a group to contain our chart:
+const chartGroup = marginsGroup.append("g")
+                            .attr("class", "line-chart");
+
+// Define X and Y scales:
+const xScale = d3.scaleUtc()
+                    .domain(d3.extent(appleStockData, (d) => new Date(d.Date)))
+                        .nice()
+                    .range([0, width]);
+
+const yScale = d3.scaleLinear()
+                    .domain(d3.extent(appleStockData, (d) => +d.Close))
+                        .nice()
+                    .range([height, 0]);
+
+// Define our X-axis:
+chartGroup
+    .append("g")
+    .attr("transform", `translate(0, ${height})`)
+    .call(d3.axisBottom(xScale).ticks(width / 80));
+
+// Define our Y-axis:
+chartGroup
+    .append("g")
+    .call(d3.axisLeft(yScale));
+
+// Define our line generator:
+const line3 = d3.line()
+                .curve(d3.curveBasis)
+                .x((d) => xScale(new Date(d.Date)))
+                .y((d) => yScale(+d.Close));
+
+// Add data to our graph:
+// circles (scatterplot)
+chartGroup
+    .append("g")
+    .attr("stroke", "steelblue")
+    .attr("stroke-width", 1.5)
+    .attr("fill", "none")
+    .selectAll("circle")
+    .data(appleStockData)
+    .join("circle")
+    .attr("cx", (d) => xScale(new Date(d.Date)))
+    .attr("cy", (d) => yScale(+d.Close))
+    .attr("r", 2);
+
+// line chart
+chartGroup
+    .append("g")
+    .append("path")
+    .datum(appleStockData)
+    .attr("d", line3)
+    .style("fill", "none")
+    .style("stroke", "pink")
+    .style("stroke-width", 1.2);
+return {width,height,marginTop,marginBottom,marginLeft,marginRight,svgCont2,marginsGroup,chartGroup,xScale,yScale,line3};
+}});
+
+define({id: "13621904", inputs: ["d3","appleStockData","view"], outputs: ["extOpen","debugOpen","debugOpen_ext"], body: (d3,appleStockData,view) => {
+const extOpen = d3.extent(appleStockData, (d) => +d.Open)
+const debugOpen = appleStockData.map((d) => +d.Open)
+const debugOpen_ext = d3.extent(debugOpen)
+
+//view(debug1)
+view(extOpen)
+view(debugOpen)
+view(debugOpen_ext)
+return {extOpen,debugOpen,debugOpen_ext};
+}});
+
+define({id: "d54876ad", inputs: ["appleStockData","view","debugOpen"], outputs: ["debugDate"], body: (appleStockData,view,debugOpen) => {
+const debugDate = appleStockData.map((d) => d.Date)
+view(debugDate[0])
+view(typeof(debugDate[0]))
+
+view(debugOpen[0])
+view(typeof(debugOpen[0]))
+return {debugDate};
+}});
+
+define({id: "32696241", inputs: ["d3","view","appleStockData"], outputs: ["width","height","marginTop","marginBottom","marginLeft","marginRight","bargap","svgCont3","marginsGroup","chartGroup","xScale","yScale","bandScale","line3"], body: (d3,view,appleStockData) => {
+// Set container variables:
+const width = 650;
+const height = 300;
+const marginTop = 25;
+const marginBottom = 35;
+const marginLeft = 40;
+const marginRight = 20;
+const bargap = 25;
+
+// Create SVG container:
+const svgCont3 = d3.create("svg")
+                    .attr("width", width + marginLeft + marginRight)
+                    .attr("height", height + marginTop + marginBottom);
+view(svgCont3.node())
+
+// Make our margins group:
+const marginsGroup = svgCont3.append("g")
+                        .attr("transform", `translate(${marginLeft}, ${marginTop})`)
+                        .attr("class", "margins")
+
+// Make a group to contain our chart:
+const chartGroup = marginsGroup.append("g")
+                            .attr("class", "line-chart");
+
+// Define X and Y scales:
+const xScale = d3.scaleUtc()
+                    .domain(d3.extent(appleStockData, (d) => new Date(d.Date)))
+                        .nice()
+                    .range([0, width]);
+
+const yScale = d3.scaleLinear()
+                    .domain(d3.extent(appleStockData, (d) => +d.Close))
+                        .nice()
+                    .range([height, 0]);
+
+// Define a Band-scale:
+const bandScale = d3.scaleBand()
+                    .domain(Array.from(new Set(appleStockData.map((d) => new Date(d.Date)))))
+                    .range([0, width]);
+
+// Define our X-axis:
+chartGroup
+    .append("g")
+    .attr("transform", `translate(0, ${height})`)
+    .call(d3.axisBottom(xScale).ticks(width / 80));
+
+// Define our Y-axis:
+chartGroup
+    .append("g")
+    .call(d3.axisLeft(yScale));
+
+// Define our line generator:
+const line3 = d3.line()
+                .curve(d3.curveBasis)
+                .x((d) => xScale(new Date(d.Date)))
+                .y((d) => yScale(+d.Close));
+
+// Add data to our graph:
+// bar-chart
+chartGroup
+    .append("g")
+    .attr("fill", "#94BFF344")
+    .selectAll("rect")
+    .data(appleStockData)
+    .join("rect")
+    .attr("x", (d) => xScale(new Date(d.Date)))
+    .attr("y", (d) => bargap + yScale(+d.Close))
+    .attr("width", bandScale.bandwidth())
+    .attr("height", (d) => height - bargap - yScale(+d.Close));
+
+// circles (scatterplot)
+chartGroup
+    .append("g")
+    .attr("stroke", "steelblue")
+    .attr("stroke-width", 1.5)
+    .attr("fill", "none")
+    .selectAll("circle")
+    .data(appleStockData)
+    .join("circle")
+    .attr("cx", (d) => xScale(new Date(d.Date)))
+    .attr("cy", (d) => yScale(+d.Close))
+    .attr("r", 2);
+
+// line chart
+chartGroup
+    .append("g")
+    .append("path")
+    .datum(appleStockData)
+    .attr("d", line3)
+    .style("fill", "none")
+    .style("stroke", "pink")
+    .style("stroke-width", 1.2);
+return {width,height,marginTop,marginBottom,marginLeft,marginRight,bargap,svgCont3,marginsGroup,chartGroup,xScale,yScale,bandScale,line3};
+}});
+
+</script>
+<input id="observablehq-sidebar-toggle" type="checkbox" title="Toggle sidebar">
+<label id="observablehq-sidebar-backdrop" for="observablehq-sidebar-toggle"></label>
+<nav id="observablehq-sidebar">
+  <ol>
+    <label id="observablehq-sidebar-close" for="observablehq-sidebar-toggle"></label>
+    <li class="observablehq-link"><a href="../">Hello Framework</a></li>
+  </ol>
+  <ol>
+    <li class="observablehq-link"><a href="../canvas">Canvas</a></li>
+    <li class="observablehq-link"><a href="../canvas2">Canvas2-streamlined</a></li>
+    <li class="observablehq-link"><a href="../clean">Only basic canvas and shapes.</a></li>
+    <li class="observablehq-link"><a href="../d3_focal_length">D3 Focal Length</a></li>
+    <li class="observablehq-link"><a href="../d3_svg">D3 SVG shapes</a></li>
+    <li class="observablehq-link"><a href="../example-dashboard">Example dashboard</a></li>
+    <li class="observablehq-link"><a href="../example-report">Example report</a></li>
+    <li class="observablehq-link"><a href="../gpt">Color Picker and Rectangle</a></li>
+    <li class="observablehq-link"><a href="../linked_sliders">Linked Sliders (Co-dependant Inputs)</a></li>
+    <li class="observablehq-link"><a href="../reactivity">Inputs Reactivity</a></li>
+    <li class="observablehq-link"><a href="../svg_flatten">Flatten.js</a></li>
+    <li class="observablehq-link"><a href="../testpage">This is a test page</a></li>
+    <li class="observablehq-link"><a href="../three_methods">Three Methods</a></li>
+    <li class="observablehq-link"><a href="../weather">Weather report</a></li>
+    <li class="observablehq-link"><a href="./D3_Part1">D3 Part1</a></li>
+    <li class="observablehq-link"><a href="./D3_Part2">D3 Part2</a></li>
+    <li class="observablehq-link observablehq-link-active"><a href="./D3_Part3">D3 Part3</a></li>
+    <li class="observablehq-link"><a href="../color_scales/color_scales">D3 Color Scales &amp; schemes</a></li>
+    <li class="observablehq-link"><a href="../dataviz/metapi">Metropolitan Museum of Art API</a></li>
+    <li class="observablehq-link"><a href="../flatten.js/flatten_gettingStarted">Flatten Getting Started</a></li>
+    <li class="observablehq-link"><a href="../lenses_optics/focal_length">Notes on Lens Optics</a></li>
+    <li class="observablehq-link"><a href="../color/src/61eaf3946c8b51f0">Color</a></li>
+    <li class="observablehq-link"><a href="../dataviz/WikiData/wikidata-api">Wiki Data API</a></li>
+  </ol>
+</nav>
+<script>{Object.assign(document.createElement("a"),{href:""}).password&&location.replace(location.href);const e=document.querySelector("#observablehq-sidebar"),t=document.querySelector("#observablehq-sidebar-toggle"),r=sessionStorage.getItem("observablehq-sidebar");r?t.checked=r==="true":t.indeterminate=!0;for(const o of document.querySelectorAll("#observablehq-sidebar summary")){const s=o.parentElement;switch(sessionStorage.getItem(`observablehq-sidebar:${o.textContent}`)){case"true":s.open=!0;break;case"false":s.classList.contains("observablehq-section-active")||(s.open=!1);break}}addEventListener("beforeunload",()=>sessionStorage.setItem("observablehq-sidebar-scrolly",`${e.scrollTop}`));const a=sessionStorage.getItem("observablehq-sidebar-scrolly");a!=null&&(e.style.cssText="overflow: hidden;",e.scrollTop=+a,e.style.cssText="");}</script>
+<aside id="observablehq-toc" data-selector="h1:not(:first-of-type)[id], h2:first-child[id], :not(h1) + h2[id]">
+<nav>
+<div>Contents</div>
+<ol>
+<li class="observablehq-secondary-link"><a href="#using-path-in-vanilla-svg">Using &#x27;path&#x27; in vanilla SVG</a></li>
+<li class="observablehq-secondary-link"><a href="#d3-path-generators">D3 Path Generators</a></li>
+</ol>
+</nav>
+</aside>
+<div id="observablehq-center">
+<main id="observablehq-main" class="observablehq">
+<h1 id="d3-part3" tabindex="-1"><a class="observablehq-header-anchor" href="#d3-part3">D3 Part3</a></h1>
+<br>
+<h2 id="using-path-in-vanilla-svg" tabindex="-1"><a class="observablehq-header-anchor" href="#using-path-in-vanilla-svg">Using 'path' in vanilla SVG</a></h2>
+<div class="observablehq observablehq--block"><observablehq-loading></observablehq-loading><!--:baafe4a9:--></div>
+<div class="observablehq observablehq--block"><observablehq-loading></observablehq-loading><!--:f66413b0:--></div>
+<div class="observablehq observablehq--block"><observablehq-loading></observablehq-loading><!--:2faef65d:--></div>
+<h2 id="d3-path-generators" tabindex="-1"><a class="observablehq-header-anchor" href="#d3-path-generators">D3 Path Generators</a></h2>
+<h3 id="d3-line" tabindex="-1"><a class="observablehq-header-anchor" href="#d3-line">d3.line()</a></h3>
+<div class="observablehq observablehq--block"><!--:bc5575f8:--></div>
+<h3 id="line-chart-plot-with-d3-line" tabindex="-1"><a class="observablehq-header-anchor" href="#line-chart-plot-with-d3-line">Line Chart Plot with d3.line()</a></h3>
+<div class="observablehq observablehq--block"><!--:4883380a:--></div>
+<div class="observablehq observablehq--block"><observablehq-loading></observablehq-loading><!--:bc98cf1d:--></div>
+<div class="observablehq observablehq--block"><!--:4b66fa36:--></div>
+<!--- ---------------------------------------------------------------------------------------------------------- --->
+<div class="warning">
+We must be careful when importing and using our data to make sure it's 'type' is as we expect.
+Otherwise we might get confusing results if numerical values are imported as strings. For example when using extent().
+</div>
+<p>To make sure our field is imported as numerical values, we can use the + symbol:</p>
+<pre><code>// (d) =&gt; +d.Open
+
+const debugOpen = d3.extent(appleStockData, (d) =&gt; +d.Open)
+</code></pre>
+<div class="observablehq observablehq--block"><!--:13621904:--></div>
+<p>We can also manually inspect the 'type' first with <em>typeof</em> :</p>
+<div class="observablehq observablehq--block"><!--:d54876ad:--></div>
+<div class="tip">
+There are also some type inferring libraries that automatically try to guess the type like PapaParse.
+</div>
+<h3 id="bar-chart" tabindex="-1"><a class="observablehq-header-anchor" href="#bar-chart">Bar Chart</a></h3>
+<svg width="300" height="200" style="border: 1px solid #ccc">
+    <rect x="100" y="100" width="100" height="100"> </rect>
+</svg>
+<div class="observablehq observablehq--block"><!--:32696241:--></div>
+</main>
+<footer id="observablehq-footer">
+<nav><a rel="prev" href="./D3_Part2"><span>D3 Part2</span></a><a rel="next" href="../color_scales/color_scales"><span>D3 Color Scales &amp; schemes</span></a></nav>
+<div>Built with <a href="https://observablehq.com/" target="_blank" rel="noopener noreferrer">Observable</a> on <a title="2025-03-14T14:26:55">Mar 14, 2025</a>.</div>
+</footer>
+</div>

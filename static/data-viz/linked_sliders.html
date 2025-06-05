@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="generator" content="Observable Framework v1.11.0">
+<title>Linked Sliders (Co-dependant Inputs) | Hello Framework</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&amp;display=swap" crossorigin>
+<link rel="preload" as="style" href="./_observablehq/theme-air,near-midnight.6e6037b3.css">
+<link rel="preload" as="style" href="./_observablehq/stdlib/inputs.ea9fd553.css">
+<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&amp;display=swap" crossorigin>
+<link rel="stylesheet" type="text/css" href="./_observablehq/theme-air,near-midnight.6e6037b3.css">
+<link rel="stylesheet" type="text/css" href="./_observablehq/stdlib/inputs.ea9fd553.css">
+<link rel="modulepreload" href="./_observablehq/client.cc5c06ae.js">
+<link rel="modulepreload" href="./_observablehq/runtime.c4c9c1af.js">
+<link rel="modulepreload" href="./_observablehq/stdlib.b89f0aee.js">
+<link rel="modulepreload" href="./_observablehq/stdlib/inputs.3a5e99d2.js">
+<link rel="modulepreload" href="./_npm/d3@7.9.0/7055d4c5.js">
+<link rel="modulepreload" href="./_import/components/canvas.3e427d60.js">
+<link rel="modulepreload" href="./_npm/htl@0.3.1/063eb405.js">
+<link rel="modulepreload" href="./_npm/isoformat@0.2.1/c68fbd73.js">
+<link rel="modulepreload" href="./_npm/d3-array@3.2.4/e95f898e.js">
+<link rel="modulepreload" href="./_npm/d3-axis@3.0.0/d44feff9.js">
+<link rel="modulepreload" href="./_npm/d3-brush@3.0.0/5830b12a.js">
+<link rel="modulepreload" href="./_npm/d3-chord@3.0.1/84d7b8e9.js">
+<link rel="modulepreload" href="./_npm/d3-color@3.1.0/2c0cdfa2.js">
+<link rel="modulepreload" href="./_npm/d3-contour@4.0.2/626bedc4.js">
+<link rel="modulepreload" href="./_npm/d3-delaunay@6.0.4/00c41b5d.js">
+<link rel="modulepreload" href="./_npm/d3-dispatch@3.0.1/b5f7cdc6.js">
+<link rel="modulepreload" href="./_npm/d3-drag@3.0.0/b22c5864.js">
+<link rel="modulepreload" href="./_npm/d3-dsv@3.0.1/407f7a1f.js">
+<link rel="modulepreload" href="./_npm/d3-ease@3.0.1/6f15f633.js">
+<link rel="modulepreload" href="./_npm/d3-fetch@3.0.1/ef1ec490.js">
+<link rel="modulepreload" href="./_npm/d3-force@3.0.0/5e1ff060.js">
+<link rel="modulepreload" href="./_npm/d3-format@3.1.0/5851d7ef.js">
+<link rel="modulepreload" href="./_npm/d3-geo@3.1.1/dcd02767.js">
+<link rel="modulepreload" href="./_npm/d3-hierarchy@3.1.2/f1db2593.js">
+<link rel="modulepreload" href="./_npm/d3-interpolate@3.0.1/034b7bcb.js">
+<link rel="modulepreload" href="./_npm/d3-path@3.1.0/4bb53638.js">
+<link rel="modulepreload" href="./_npm/d3-polygon@3.0.1/bbafde58.js">
+<link rel="modulepreload" href="./_npm/d3-quadtree@3.0.1/aa5b35a8.js">
+<link rel="modulepreload" href="./_npm/d3-random@3.0.1/32c7fec2.js">
+<link rel="modulepreload" href="./_npm/d3-scale@4.0.2/567840a0.js">
+<link rel="modulepreload" href="./_npm/d3-scale-chromatic@3.1.0/cf9b720b.js">
+<link rel="modulepreload" href="./_npm/d3-selection@3.0.0/5dcd62f4.js">
+<link rel="modulepreload" href="./_npm/d3-shape@3.2.0/f8e03c56.js">
+<link rel="modulepreload" href="./_npm/d3-time@3.1.0/5bc129e1.js">
+<link rel="modulepreload" href="./_npm/d3-time-format@4.1.0/19c92b44.js">
+<link rel="modulepreload" href="./_npm/d3-timer@3.0.1/f31b5398.js">
+<link rel="modulepreload" href="./_npm/d3-transition@3.0.1/8debb4ba.js">
+<link rel="modulepreload" href="./_npm/d3-zoom@3.0.0/4b0cc581.js">
+<link rel="modulepreload" href="./_npm/internmap@2.0.3/5eed35fd.js">
+<link rel="modulepreload" href="./_npm/delaunator@5.0.1/e67acb27.js">
+<link rel="modulepreload" href="./_npm/robust-predicates@3.0.2/8ac9039b.js">
+<link rel="icon" href="./_file/observable.1af93621.png" type="image/png" sizes="32x32">
+<script type="module">
+
+import {define} from "./_observablehq/client.cc5c06ae.js";
+
+define({id: "b70f2db5", outputs: ["Inputs","d3","createCanvas","drawRect"], body: async () => {
+const [Inputs, d3, {createCanvas, drawRect}] = await Promise.all([import("./_observablehq/stdlib/inputs.3a5e99d2.js"), import("./_npm/d3@7.9.0/7055d4c5.js"), import("./_import/components/canvas.3e427d60.js")]);
+
+return {Inputs,d3,createCanvas,drawRect};
+}});
+
+define({id: "1a7749a0", inputs: ["Inputs","view"], outputs: ["slider1","slider2","linkSliders"], body: (Inputs,view) => {
+const slider1 = Inputs.range([0, 100], {step: 1, label: "Slider 1", value: 50});
+const slider2 = Inputs.range([0, 100], {step: 1, label: "Slider 2", value: 100});
+
+view(slider1);
+view(slider2);
+
+function linkSliders() {
+    // When slider1 changes, update slider2
+    slider1.addEventListener("input", () => {
+        slider2.value = slider1.value * 2;
+    });
+
+    // When slider2 changes, update slider1
+    slider2.addEventListener("input", () => {
+        slider1.value = slider2.value / 2;
+    });
+}
+
+// Call the function to activate the linking
+linkSliders();
+return {slider1,slider2,linkSliders};
+}});
+
+define({id: "dd149921", inputs: ["view","Inputs"], outputs: ["rgb_slider"], body: (view,Inputs) => {
+const rgb_slider = view(Inputs.form({
+    R: Inputs.range([0, 255], { step: 1, label: "R" }),
+    G: Inputs.range([0, 255], { step: 1, label: "G" }),
+    B: Inputs.range([0, 255], { step: 1, label: "B" })
+}));
+return {rgb_slider};
+}});
+
+define({id: "2ce7141f", inputs: ["view","rgb_slider","d3"], outputs: ["rgb_color","rgb_hex"], body: (view,rgb_slider,d3) => {
+view(rgb_slider);
+
+const rgb_color = `rgb(${rgb_slider.R}, ${rgb_slider.G}, ${rgb_slider.B})`;
+const rgb_hex = d3.color(rgb_color).formatHex();
+view(rgb_color);
+view(rgb_hex);
+return {rgb_color,rgb_hex};
+}});
+
+define({id: "4cec323f", inputs: ["createCanvas","width","view"], outputs: ["rgbCanvas"], body: (createCanvas,width,view) => {
+const rgbCanvas= createCanvas(width);
+view(rgbCanvas);
+return {rgbCanvas};
+}});
+
+define({id: "2728057c", inputs: ["drawRect","rgbCanvas","rgb_color"], body: (drawRect,rgbCanvas,rgb_color) => {
+drawRect(rgbCanvas, {w: 200, h: 100, fill: rgb_color});
+}});
+
+define({id: "4aa6a364", inputs: ["view","Inputs"], outputs: ["hsl_slider"], body: (view,Inputs) => {
+const hsl_slider = view(Inputs.form({
+    H: Inputs.range([0, 360], { step: 1, label: "H" }),
+    S: Inputs.range([0, 100], { step: 1, label: "S", unit: "%" }),
+    L: Inputs.range([0, 100], { step: 1, label: "L", unit: "%" })
+}));
+return {hsl_slider};
+}});
+
+define({id: "4c19bbed", inputs: ["view","hsl_slider","d3"], outputs: ["hsl_color","hsl_hex"], body: (view,hsl_slider,d3) => {
+view(hsl_slider);
+
+const hsl_color = `hsl(${hsl_slider.H}, ${hsl_slider.S}%, ${hsl_slider.L}%)`;
+const hsl_hex = d3.color(hsl_color).formatHex();
+view(hsl_color);
+view(hsl_hex);
+return {hsl_color,hsl_hex};
+}});
+
+define({id: "d79d4aa5", inputs: ["createCanvas","width","view"], outputs: ["hslCanvas"], body: (createCanvas,width,view) => {
+const hslCanvas= createCanvas(width);
+view(hslCanvas);
+return {hslCanvas};
+}});
+
+define({id: "10f789cd", inputs: ["drawRect","hslCanvas","hsl_color"], body: (drawRect,hslCanvas,hsl_color) => {
+drawRect(hslCanvas, {w: 200, h: 100, fill: hsl_color});
+}});
+
+define({id: "ff278329", inputs: ["view","Inputs"], outputs: ["replay"], body: (view,Inputs) => {
+const replay = view(Inputs.button("Replay"));
+return {replay};
+}});
+
+define({id: "812106b5", inputs: ["replay","hsl_slider"], body: (replay,hsl_slider) => {
+replay; // run this block when the button is clicked
+hsl_slider.H = 1
+}});
+
+define({id: "ce0d43b6", body: () => {
+//function linkRGBHSL() {
+//    // When slider1 changes, update slider2
+//    rbg_slider.addEventListener("input", () => {
+//        slider2.value = slider1.value * 2;
+//    });
+//
+//    // When slider2 changes, update slider1
+//    slider2.addEventListener("input", () => {
+//        slider1.value = slider2.value / 2;
+//    });
+//}
+//
+//// Call the function to activate the linking
+//linkSliders();
+}});
+
+</script>
+<input id="observablehq-sidebar-toggle" type="checkbox" title="Toggle sidebar">
+<label id="observablehq-sidebar-backdrop" for="observablehq-sidebar-toggle"></label>
+<nav id="observablehq-sidebar">
+  <ol>
+    <label id="observablehq-sidebar-close" for="observablehq-sidebar-toggle"></label>
+    <li class="observablehq-link"><a href="./">Hello Framework</a></li>
+  </ol>
+  <ol>
+    <li class="observablehq-link"><a href="./canvas">Canvas</a></li>
+    <li class="observablehq-link"><a href="./canvas2">Canvas2-streamlined</a></li>
+    <li class="observablehq-link"><a href="./clean">Only basic canvas and shapes.</a></li>
+    <li class="observablehq-link"><a href="./d3_focal_length">D3 Focal Length</a></li>
+    <li class="observablehq-link"><a href="./d3_svg">D3 SVG shapes</a></li>
+    <li class="observablehq-link"><a href="./example-dashboard">Example dashboard</a></li>
+    <li class="observablehq-link"><a href="./example-report">Example report</a></li>
+    <li class="observablehq-link"><a href="./gpt">Color Picker and Rectangle</a></li>
+    <li class="observablehq-link observablehq-link-active"><a href="./linked_sliders">Linked Sliders (Co-dependant Inputs)</a></li>
+    <li class="observablehq-link"><a href="./reactivity">Inputs Reactivity</a></li>
+    <li class="observablehq-link"><a href="./svg_flatten">Flatten.js</a></li>
+    <li class="observablehq-link"><a href="./testpage">This is a test page</a></li>
+    <li class="observablehq-link"><a href="./three_methods">Three Methods</a></li>
+    <li class="observablehq-link"><a href="./weather">Weather report</a></li>
+    <li class="observablehq-link"><a href="./D3_course/D3_Part1">D3 Part1</a></li>
+    <li class="observablehq-link"><a href="./D3_course/D3_Part2">D3 Part2</a></li>
+    <li class="observablehq-link"><a href="./D3_course/D3_Part3">D3 Part3</a></li>
+    <li class="observablehq-link"><a href="./color_scales/color_scales">D3 Color Scales &amp; schemes</a></li>
+    <li class="observablehq-link"><a href="./dataviz/metapi">Metropolitan Museum of Art API</a></li>
+    <li class="observablehq-link"><a href="./flatten.js/flatten_gettingStarted">Flatten Getting Started</a></li>
+    <li class="observablehq-link"><a href="./lenses_optics/focal_length">Notes on Lens Optics</a></li>
+    <li class="observablehq-link"><a href="./color/src/61eaf3946c8b51f0">Color</a></li>
+    <li class="observablehq-link"><a href="./dataviz/WikiData/wikidata-api">Wiki Data API</a></li>
+  </ol>
+</nav>
+<script>{Object.assign(document.createElement("a"),{href:""}).password&&location.replace(location.href);const e=document.querySelector("#observablehq-sidebar"),t=document.querySelector("#observablehq-sidebar-toggle"),r=sessionStorage.getItem("observablehq-sidebar");r?t.checked=r==="true":t.indeterminate=!0;for(const o of document.querySelectorAll("#observablehq-sidebar summary")){const s=o.parentElement;switch(sessionStorage.getItem(`observablehq-sidebar:${o.textContent}`)){case"true":s.open=!0;break;case"false":s.classList.contains("observablehq-section-active")||(s.open=!1);break}}addEventListener("beforeunload",()=>sessionStorage.setItem("observablehq-sidebar-scrolly",`${e.scrollTop}`));const a=sessionStorage.getItem("observablehq-sidebar-scrolly");a!=null&&(e.style.cssText="overflow: hidden;",e.scrollTop=+a,e.style.cssText="");}</script>
+<aside id="observablehq-toc" data-selector="h1:not(:first-of-type)[id], h2:first-child[id], :not(h1) + h2[id]">
+<nav>
+</nav>
+</aside>
+<div id="observablehq-center">
+<main id="observablehq-main" class="observablehq">
+<h1 id="linked-sliders-co-dependant-inputs" tabindex="-1"><a class="observablehq-header-anchor" href="#linked-sliders-co-dependant-inputs">Linked Sliders (Co-dependant Inputs)</a></h1>
+<div class="observablehq observablehq--block"><!--:b70f2db5:--></div>
+<div class="observablehq observablehq--block"><!--:1a7749a0:--></div>
+<br>
+<h3 id="can-we-use-this-to-sync-two-different-color-space-representations" tabindex="-1"><a class="observablehq-header-anchor" href="#can-we-use-this-to-sync-two-different-color-space-representations">Can we use this to sync two different color space representations?</a></h3>
+<div class="grid grid-cols-1">
+  <div class="card">
+    Hello
+  </div>
+</div>
+<h3 id="rgb-color" tabindex="-1"><a class="observablehq-header-anchor" href="#rgb-color">RGB color</a></h3>
+<div class="observablehq observablehq--block"><!--:dd149921:--></div>
+<div class="observablehq observablehq--block"><!--:2ce7141f:--></div>
+<div class="observablehq observablehq--block"><!--:4cec323f:--></div>
+<div class="observablehq observablehq--block"><!--:2728057c:--></div>
+<br>
+<h3 id="hsl-color" tabindex="-1"><a class="observablehq-header-anchor" href="#hsl-color">HSL color</a></h3>
+<div class="observablehq observablehq--block"><!--:4aa6a364:--></div>
+<div class="observablehq observablehq--block"><!--:4c19bbed:--></div>
+<div class="observablehq observablehq--block"><!--:d79d4aa5:--></div>
+<div class="observablehq observablehq--block"><!--:10f789cd:--></div>
+<!-- Make a 'Green' button -->
+<div class="observablehq observablehq--block"><!--:ff278329:--></div>
+<div class="observablehq observablehq--block"><!--:812106b5:--></div>
+<div class="observablehq observablehq--block"><!--:ce0d43b6:--></div>
+<br>
+This could potentially be used to make a little "app" that helps you view artwork from your catalogue that matches a certain "hue" or color scheme.
+Also frames from movies.
+</main>
+<footer id="observablehq-footer">
+<nav><a rel="prev" href="./gpt"><span>Color Picker and Rectangle</span></a><a rel="next" href="./reactivity"><span>Inputs Reactivity</span></a></nav>
+<div>Built with <a href="https://observablehq.com/" target="_blank" rel="noopener noreferrer">Observable</a> on <a title="2025-03-14T14:26:55">Mar 14, 2025</a>.</div>
+</footer>
+</div>

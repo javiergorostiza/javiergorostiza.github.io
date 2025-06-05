@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="generator" content="Observable Framework v1.11.0">
+<title>Three Methods | Hello Framework</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&amp;display=swap" crossorigin>
+<link rel="preload" as="style" href="./_observablehq/theme-air,near-midnight.6e6037b3.css">
+<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&amp;display=swap" crossorigin>
+<link rel="stylesheet" type="text/css" href="./_observablehq/theme-air,near-midnight.6e6037b3.css">
+<link rel="modulepreload" href="./_observablehq/client.cc5c06ae.js">
+<link rel="modulepreload" href="./_observablehq/runtime.c4c9c1af.js">
+<link rel="modulepreload" href="./_observablehq/stdlib.b89f0aee.js">
+<link rel="modulepreload" href="./_node/@flatten-js/core@1.6.2/index.f8cf25b2.js">
+<link rel="modulepreload" href="./_npm/d3@7.9.0/7055d4c5.js">
+<link rel="modulepreload" href="./_npm/htl@0.3.1/063eb405.js">
+<link rel="modulepreload" href="./_npm/d3-array@3.2.4/e95f898e.js">
+<link rel="modulepreload" href="./_npm/d3-axis@3.0.0/d44feff9.js">
+<link rel="modulepreload" href="./_npm/d3-brush@3.0.0/5830b12a.js">
+<link rel="modulepreload" href="./_npm/d3-chord@3.0.1/84d7b8e9.js">
+<link rel="modulepreload" href="./_npm/d3-color@3.1.0/2c0cdfa2.js">
+<link rel="modulepreload" href="./_npm/d3-contour@4.0.2/626bedc4.js">
+<link rel="modulepreload" href="./_npm/d3-delaunay@6.0.4/00c41b5d.js">
+<link rel="modulepreload" href="./_npm/d3-dispatch@3.0.1/b5f7cdc6.js">
+<link rel="modulepreload" href="./_npm/d3-drag@3.0.0/b22c5864.js">
+<link rel="modulepreload" href="./_npm/d3-dsv@3.0.1/407f7a1f.js">
+<link rel="modulepreload" href="./_npm/d3-ease@3.0.1/6f15f633.js">
+<link rel="modulepreload" href="./_npm/d3-fetch@3.0.1/ef1ec490.js">
+<link rel="modulepreload" href="./_npm/d3-force@3.0.0/5e1ff060.js">
+<link rel="modulepreload" href="./_npm/d3-format@3.1.0/5851d7ef.js">
+<link rel="modulepreload" href="./_npm/d3-geo@3.1.1/dcd02767.js">
+<link rel="modulepreload" href="./_npm/d3-hierarchy@3.1.2/f1db2593.js">
+<link rel="modulepreload" href="./_npm/d3-interpolate@3.0.1/034b7bcb.js">
+<link rel="modulepreload" href="./_npm/d3-path@3.1.0/4bb53638.js">
+<link rel="modulepreload" href="./_npm/d3-polygon@3.0.1/bbafde58.js">
+<link rel="modulepreload" href="./_npm/d3-quadtree@3.0.1/aa5b35a8.js">
+<link rel="modulepreload" href="./_npm/d3-random@3.0.1/32c7fec2.js">
+<link rel="modulepreload" href="./_npm/d3-scale@4.0.2/567840a0.js">
+<link rel="modulepreload" href="./_npm/d3-scale-chromatic@3.1.0/cf9b720b.js">
+<link rel="modulepreload" href="./_npm/d3-selection@3.0.0/5dcd62f4.js">
+<link rel="modulepreload" href="./_npm/d3-shape@3.2.0/f8e03c56.js">
+<link rel="modulepreload" href="./_npm/d3-time@3.1.0/5bc129e1.js">
+<link rel="modulepreload" href="./_npm/d3-time-format@4.1.0/19c92b44.js">
+<link rel="modulepreload" href="./_npm/d3-timer@3.0.1/f31b5398.js">
+<link rel="modulepreload" href="./_npm/d3-transition@3.0.1/8debb4ba.js">
+<link rel="modulepreload" href="./_npm/d3-zoom@3.0.0/4b0cc581.js">
+<link rel="modulepreload" href="./_npm/internmap@2.0.3/5eed35fd.js">
+<link rel="modulepreload" href="./_npm/delaunator@5.0.1/e67acb27.js">
+<link rel="modulepreload" href="./_npm/robust-predicates@3.0.2/8ac9039b.js">
+<link rel="icon" href="./_file/observable.1af93621.png" type="image/png" sizes="32x32">
+<script type="module">
+
+import {define} from "./_observablehq/client.cc5c06ae.js";
+
+define({id: "69680d70", inputs: ["view"], outputs: ["svgCont1","path1","path2"], body: (view) => {
+const svgCont1 = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+view(svgCont1);
+
+const path1 = `<path
+        id="path1"
+        style="fill:orange"
+        d="M 114.74344,113.95345 65.601044,80.18066 119.42034,54.508491 Z" />
+        `
+const path2 = `<path
+        id="path1"
+        style="fill:green"
+        d="M 154.74344,113.95345 105.601044,80.18066 159.42034,54.508491 Z" />
+        `
+svgCont1.innerHTML = path1 + path2
+return {svgCont1,path1,path2};
+}});
+
+define({id: "bd9352f8", inputs: ["view"], outputs: ["svgCont2","svgCircle"], body: (view) => {
+const svgCont2 = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+view(svgCont2);
+
+const svgCircle = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+svgCircle.setAttribute("cx", 70);
+svgCircle.setAttribute("cy", 40);
+svgCircle.setAttribute("r", 30);
+svgCircle.setAttribute("fill", "blue");
+
+svgCont2.appendChild(svgCircle);
+return {svgCont2,svgCircle};
+}});
+
+define({id: "b34f6698", inputs: ["view"], outputs: ["point","vector","circle","line","ray","segment","arc","polygon","matrix","svgCont3","circle1","circle1_svg"], body: async (view) => {
+const {point, vector, circle, line, ray, segment, arc, polygon, matrix} = await import("./_node/@flatten-js/core@1.6.2/index.f8cf25b2.js");
+
+const svgCont3 = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+view(svgCont3);
+
+const circle1 = circle(point(180, 150), 70);
+const circle1_svg = circle1.svg();
+
+//svgCont3.appendChild(circle1_svg);
+return {point,vector,circle,line,ray,segment,arc,polygon,matrix,svgCont3,circle1,circle1_svg};
+}});
+
+define({id: "d9255015", inputs: ["html","display"], body: async (html,display) => {
+display(await(
+html.fragment`<!-- We define our first SVG container  -->
+<svg id="stage" width="500" height="200"></svg>`
+))
+}});
+
+define({id: "11c4598e", inputs: ["view","circle","point","d3"], outputs: ["svgCont4","circle2","circle2_svg"], body: (view,circle,point,d3) => {
+const svgCont4 = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+view(svgCont4)
+
+const circle2 = circle(point(180, 150), 70);
+const circle2_svg = circle2.svg();
+
+d3.select(svgCont4)
+  .append("svg")
+    .attr("width", 960)
+    .attr("height", 100)
+  .append("g")
+    .attr("transform", "translate(20,20)")
+  .append("rect")
+    .attr("width", 200)
+    .attr("height", 60)
+    .attr("fill", "yellow")
+//  .data(circle2_svg);
+return {svgCont4,circle2,circle2_svg};
+}});
+
+</script>
+<input id="observablehq-sidebar-toggle" type="checkbox" title="Toggle sidebar">
+<label id="observablehq-sidebar-backdrop" for="observablehq-sidebar-toggle"></label>
+<nav id="observablehq-sidebar">
+  <ol>
+    <label id="observablehq-sidebar-close" for="observablehq-sidebar-toggle"></label>
+    <li class="observablehq-link"><a href="./">Hello Framework</a></li>
+  </ol>
+  <ol>
+    <li class="observablehq-link"><a href="./canvas">Canvas</a></li>
+    <li class="observablehq-link"><a href="./canvas2">Canvas2-streamlined</a></li>
+    <li class="observablehq-link"><a href="./clean">Only basic canvas and shapes.</a></li>
+    <li class="observablehq-link"><a href="./d3_focal_length">D3 Focal Length</a></li>
+    <li class="observablehq-link"><a href="./d3_svg">D3 SVG shapes</a></li>
+    <li class="observablehq-link"><a href="./example-dashboard">Example dashboard</a></li>
+    <li class="observablehq-link"><a href="./example-report">Example report</a></li>
+    <li class="observablehq-link"><a href="./gpt">Color Picker and Rectangle</a></li>
+    <li class="observablehq-link"><a href="./linked_sliders">Linked Sliders (Co-dependant Inputs)</a></li>
+    <li class="observablehq-link"><a href="./reactivity">Inputs Reactivity</a></li>
+    <li class="observablehq-link"><a href="./svg_flatten">Flatten.js</a></li>
+    <li class="observablehq-link"><a href="./testpage">This is a test page</a></li>
+    <li class="observablehq-link observablehq-link-active"><a href="./three_methods">Three Methods</a></li>
+    <li class="observablehq-link"><a href="./weather">Weather report</a></li>
+    <li class="observablehq-link"><a href="./D3_course/D3_Part1">D3 Part1</a></li>
+    <li class="observablehq-link"><a href="./D3_course/D3_Part2">D3 Part2</a></li>
+    <li class="observablehq-link"><a href="./D3_course/D3_Part3">D3 Part3</a></li>
+    <li class="observablehq-link"><a href="./color_scales/color_scales">D3 Color Scales &amp; schemes</a></li>
+    <li class="observablehq-link"><a href="./dataviz/metapi">Metropolitan Museum of Art API</a></li>
+    <li class="observablehq-link"><a href="./flatten.js/flatten_gettingStarted">Flatten Getting Started</a></li>
+    <li class="observablehq-link"><a href="./lenses_optics/focal_length">Notes on Lens Optics</a></li>
+    <li class="observablehq-link"><a href="./color/src/61eaf3946c8b51f0">Color</a></li>
+    <li class="observablehq-link"><a href="./dataviz/WikiData/wikidata-api">Wiki Data API</a></li>
+  </ol>
+</nav>
+<script>{Object.assign(document.createElement("a"),{href:""}).password&&location.replace(location.href);const e=document.querySelector("#observablehq-sidebar"),t=document.querySelector("#observablehq-sidebar-toggle"),r=sessionStorage.getItem("observablehq-sidebar");r?t.checked=r==="true":t.indeterminate=!0;for(const o of document.querySelectorAll("#observablehq-sidebar summary")){const s=o.parentElement;switch(sessionStorage.getItem(`observablehq-sidebar:${o.textContent}`)){case"true":s.open=!0;break;case"false":s.classList.contains("observablehq-section-active")||(s.open=!1);break}}addEventListener("beforeunload",()=>sessionStorage.setItem("observablehq-sidebar-scrolly",`${e.scrollTop}`));const a=sessionStorage.getItem("observablehq-sidebar-scrolly");a!=null&&(e.style.cssText="overflow: hidden;",e.scrollTop=+a,e.style.cssText="");}</script>
+<aside id="observablehq-toc" data-selector="h1:not(:first-of-type)[id], h2:first-child[id], :not(h1) + h2[id]">
+<nav>
+<div>Contents</div>
+<ol>
+<li class="observablehq-secondary-link"><a href="#for-rendering-svg-with-js-libraries">(for rendering SVG with JS libraries)</a></li>
+<li class="observablehq-secondary-link"><a href="#create-element-ns-inner-html">CreateElementNS + innerHTML</a></li>
+<li class="observablehq-secondary-link"><a href="#create-element-ns-append-child">CreateElementNS + appendChild</a></li>
+<li class="observablehq-secondary-link"><a href="#d3-select">d3.select</a></li>
+</ol>
+</nav>
+</aside>
+<div id="observablehq-center">
+<main id="observablehq-main" class="observablehq">
+<h1 id="three-methods" tabindex="-1"><a class="observablehq-header-anchor" href="#three-methods">Three Methods</a></h1>
+<h1 id="for-rendering-svg-with-js-libraries" tabindex="-1"><a class="observablehq-header-anchor" href="#for-rendering-svg-with-js-libraries">(for rendering SVG with JS libraries)</a></h1>
+<p>It seems we can follow different approaches in order to render SVG elements to our page via JS libraries.<br>
+The three methods we can outline are as follows:</p>
+<ul>
+<li>CreateElementNS + innerHTML</li>
+<li>CreateElementNS + appendChild</li>
+<li>d3.select</li>
+</ul>
+<br>
+<div style="text-align: right"> --- createElementNS</div>
+<p>The first two methods make use of the 'Create Element Namespace' function to create the container SVG element.<br>
+This function takes a namespace format, and a qualified name which specifies the type of element to be created (in our case, an svg element).<br>
+It looks like this:</p>
+<pre><code>const svgCont1 = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+view(svgCont1);
+</code></pre>
+<p>And we can change its width and height parameters like so:</p>
+<pre><code>svgCont1.setAttribute("width", width);
+svgCont1.setAttribute("height", 300);
+</code></pre>
+<p>(or we can omit them and the function will use some default value.)</p>
+<br>
+<div style="text-align: right"> --- plain html SVG tag</div>
+<p>But instead of using a JS function to create our SVG element, we can just do it with plain html:</p>
+<pre><code>&lt;svg id="stage" width="500" height="500"&gt;&lt;/svg&gt;
+</code></pre>
+<br>
+<p>With our SVG containers setup, we now have different ways of inserting SVG elements into those containers.</p>
+<div style="text-align: right"> --- innerHTML</div>
+<p>The first one is to substitute the innerHTML of our SVG container by replacing it with a single string that represents our group of SVG elements. (This is only particlarly useful if we are generating and concatenating those elements via code and not generating the string by hand.)</p>
+<p>Here is an example:</p>
+<pre><code>const path1 = `&lt;path
+        id="path1"
+        style="fill:orange"
+        d="M 114.74344,113.95345 65.601044,80.18066 119.42034,54.508491 Z" /&gt;
+        `
+const path2 = `&lt;path
+        id="path1"
+        style="fill:green"
+        d="M 154.74344,113.95345 105.601044,80.18066 159.42034,54.508491 Z" /&gt;
+        `
+svgCont1.innerHTML = path1 + path2
+</code></pre>
+<h2 id="create-element-ns-inner-html" tabindex="-1"><a class="observablehq-header-anchor" href="#create-element-ns-inner-html">CreateElementNS + innerHTML</a></h2>
+<div class="observablehq observablehq--block"><!--:69680d70:--></div>
+<br>
+<div style="text-align: right"> --- appendChild()</div>
+<p>But we can also use the appendChild function to append our elements to the SVG container. But to use this function our elements must not be raw strings as before, but rather they must be DOM elements.
+For example, SVG circles, paths, groups etc.
+We can create such SVG DOM elements again with the help of our createElementNS() function:</p>
+<pre><code>const svgCircle = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+svgCircle.setAttribute("cx", 70);
+svgCircle.setAttribute("cy", 40);
+svgCircle.setAttribute("r", 30);
+svgCircle.setAttribute("fill", "blue");
+
+svgCont2.appendChild(svgCircle);
+</code></pre>
+<h2 id="create-element-ns-append-child" tabindex="-1"><a class="observablehq-header-anchor" href="#create-element-ns-append-child">CreateElementNS + appendChild</a></h2>
+<div class="observablehq observablehq--block"><!--:bd9352f8:--></div>
+<p>But we can also use a helper library that will output such SVG DOM objects. We will use Flatten.js.</p>
+<pre><code>import {point, vector, circle, line, ray, segment, arc, polygon, matrix} from '@flatten-js/core';
+
+const circle1 = circle(point(180, 150), 70);
+const circle1_svg = circle1.svg();
+
+svgCont3.appendChild(circle1_svg);
+</code></pre>
+<div class="observablehq observablehq--block"><!--:b34f6698:--></div>
+<h2 id="d3-select" tabindex="-1"><a class="observablehq-header-anchor" href="#d3-select">d3.select</a></h2>
+<div class="observablehq observablehq--block"><observablehq-loading></observablehq-loading><!--:d9255015:--></div>
+<div class="observablehq observablehq--block"><!--:11c4598e:--></div>
+</main>
+<footer id="observablehq-footer">
+<nav><a rel="prev" href="./testpage"><span>This is a test page</span></a><a rel="next" href="./weather"><span>Weather report</span></a></nav>
+<div>Built with <a href="https://observablehq.com/" target="_blank" rel="noopener noreferrer">Observable</a> on <a title="2025-03-14T14:26:55">Mar 14, 2025</a>.</div>
+</footer>
+</div>

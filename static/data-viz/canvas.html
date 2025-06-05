@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="generator" content="Observable Framework v1.11.0">
+<title>Canvas | Hello Framework</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&amp;display=swap" crossorigin>
+<link rel="preload" as="style" href="./_observablehq/theme-air,near-midnight.6e6037b3.css">
+<link rel="preload" as="style" href="./_observablehq/stdlib/inputs.ea9fd553.css">
+<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&amp;display=swap" crossorigin>
+<link rel="stylesheet" type="text/css" href="./_observablehq/theme-air,near-midnight.6e6037b3.css">
+<link rel="stylesheet" type="text/css" href="./_observablehq/stdlib/inputs.ea9fd553.css">
+<link rel="modulepreload" href="./_observablehq/client.cc5c06ae.js">
+<link rel="modulepreload" href="./_observablehq/runtime.c4c9c1af.js">
+<link rel="modulepreload" href="./_observablehq/stdlib.b89f0aee.js">
+<link rel="modulepreload" href="./_import/components/canvas.3e427d60.js">
+<link rel="modulepreload" href="./_import/components/testpage.df619a25.js">
+<link rel="modulepreload" href="./_observablehq/stdlib/inputs.3a5e99d2.js">
+<link rel="modulepreload" href="./_npm/@observablehq/plot@0.6.16/e828d8c8.js">
+<link rel="modulepreload" href="./_npm/htl@0.3.1/063eb405.js">
+<link rel="modulepreload" href="./_npm/isoformat@0.2.1/c68fbd73.js">
+<link rel="modulepreload" href="./_npm/d3@7.9.0/7055d4c5.js">
+<link rel="modulepreload" href="./_npm/interval-tree-1d@1.0.4/a62ae5ce.js">
+<link rel="modulepreload" href="./_npm/d3-array@3.2.4/e95f898e.js">
+<link rel="modulepreload" href="./_npm/d3-axis@3.0.0/d44feff9.js">
+<link rel="modulepreload" href="./_npm/d3-brush@3.0.0/5830b12a.js">
+<link rel="modulepreload" href="./_npm/d3-chord@3.0.1/84d7b8e9.js">
+<link rel="modulepreload" href="./_npm/d3-color@3.1.0/2c0cdfa2.js">
+<link rel="modulepreload" href="./_npm/d3-contour@4.0.2/626bedc4.js">
+<link rel="modulepreload" href="./_npm/d3-delaunay@6.0.4/00c41b5d.js">
+<link rel="modulepreload" href="./_npm/d3-dispatch@3.0.1/b5f7cdc6.js">
+<link rel="modulepreload" href="./_npm/d3-drag@3.0.0/b22c5864.js">
+<link rel="modulepreload" href="./_npm/d3-dsv@3.0.1/407f7a1f.js">
+<link rel="modulepreload" href="./_npm/d3-ease@3.0.1/6f15f633.js">
+<link rel="modulepreload" href="./_npm/d3-fetch@3.0.1/ef1ec490.js">
+<link rel="modulepreload" href="./_npm/d3-force@3.0.0/5e1ff060.js">
+<link rel="modulepreload" href="./_npm/d3-format@3.1.0/5851d7ef.js">
+<link rel="modulepreload" href="./_npm/d3-geo@3.1.1/dcd02767.js">
+<link rel="modulepreload" href="./_npm/d3-hierarchy@3.1.2/f1db2593.js">
+<link rel="modulepreload" href="./_npm/d3-interpolate@3.0.1/034b7bcb.js">
+<link rel="modulepreload" href="./_npm/d3-path@3.1.0/4bb53638.js">
+<link rel="modulepreload" href="./_npm/d3-polygon@3.0.1/bbafde58.js">
+<link rel="modulepreload" href="./_npm/d3-quadtree@3.0.1/aa5b35a8.js">
+<link rel="modulepreload" href="./_npm/d3-random@3.0.1/32c7fec2.js">
+<link rel="modulepreload" href="./_npm/d3-scale@4.0.2/567840a0.js">
+<link rel="modulepreload" href="./_npm/d3-scale-chromatic@3.1.0/cf9b720b.js">
+<link rel="modulepreload" href="./_npm/d3-selection@3.0.0/5dcd62f4.js">
+<link rel="modulepreload" href="./_npm/d3-shape@3.2.0/f8e03c56.js">
+<link rel="modulepreload" href="./_npm/d3-time@3.1.0/5bc129e1.js">
+<link rel="modulepreload" href="./_npm/d3-time-format@4.1.0/19c92b44.js">
+<link rel="modulepreload" href="./_npm/d3-timer@3.0.1/f31b5398.js">
+<link rel="modulepreload" href="./_npm/d3-transition@3.0.1/8debb4ba.js">
+<link rel="modulepreload" href="./_npm/d3-zoom@3.0.0/4b0cc581.js">
+<link rel="modulepreload" href="./_npm/binary-search-bounds@2.0.5/1ee6c50d.js">
+<link rel="modulepreload" href="./_npm/internmap@2.0.3/5eed35fd.js">
+<link rel="modulepreload" href="./_npm/delaunator@5.0.1/e67acb27.js">
+<link rel="modulepreload" href="./_npm/robust-predicates@3.0.2/8ac9039b.js">
+<link rel="icon" href="./_file/observable.1af93621.png" type="image/png" sizes="32x32">
+<script type="module">
+
+import {define} from "./_observablehq/client.cc5c06ae.js";
+
+define({id: "ca55edaf", outputs: ["createCanvas","drawRect","drawCircle","RGB_sliders","HSL_sliders","rectSize_sliders"], body: async () => {
+const [{createCanvas, drawRect, drawCircle}, {RGB_sliders, HSL_sliders, rectSize_sliders}] = await Promise.all([import("./_import/components/canvas.3e427d60.js"), import("./_import/components/testpage.df619a25.js")]);
+
+return {createCanvas,drawRect,drawCircle,RGB_sliders,HSL_sliders,rectSize_sliders};
+}});
+
+define({id: "d7bee83f", inputs: ["view","RGB_sliders"], outputs: ["RGB_values"], body: (view,RGB_sliders) => {
+const RGB_values = view(RGB_sliders())
+return {RGB_values};
+}});
+
+define({id: "dadcdb1d", inputs: ["width"], outputs: ["canvas1","canvas2"], body: (width) => {
+// Create our canvas, and populate some attributes:
+const canvas1 = document.createElement("canvas")
+canvas1.id = 'canvas-area-1';
+canvas1.height = 200;
+canvas1.width = width;
+
+// Create another canvas:
+const canvas2 = document.createElement("canvas");
+canvas2.id = 'canvas-area-2';
+canvas2.height = 200;
+canvas2.width = 600;
+return {canvas1,canvas2};
+}});
+
+define({id: "7c7659d0", inputs: ["canvas1","RGB_values","canvas2"], outputs: ["context1","context2"], body: (canvas1,RGB_values,canvas2) => {
+const context1 = canvas1.getContext("2d");
+context1.fillStyle = `rgb(${RGB_values.R}, ${RGB_values.G}, ${RGB_values.B})`;
+context1.fillRect(0, 0, 220, 119);
+
+const context2 = canvas2.getContext("2d");
+context2.strokeStyle = "red";
+context2.strokeRect(1, 1, 420, 119);
+return {context1,context2};
+}});
+
+define({id: "1f511a4a", inputs: ["view","canvas1"], body: (view,canvas1) => {
+view(canvas1);
+}});
+
+define({id: "43d30fac", inputs: ["view","canvas2"], body: (view,canvas2) => {
+view(canvas2);
+}});
+
+define({id: "13c29230", inputs: ["createCanvas","width","view","drawRect","drawCircle"], outputs: ["foocanvas","color"], body: (createCanvas,width,view,drawRect,drawCircle) => {
+const foocanvas = createCanvas(width)
+view(foocanvas)
+
+
+const color = "red"
+
+// Draw some shapes
+drawRect(foocanvas, {w: 200, h: 100, clr: color });
+drawCircle(foocanvas, 150, 100, 40);
+return {foocanvas,color};
+}});
+
+</script>
+<input id="observablehq-sidebar-toggle" type="checkbox" title="Toggle sidebar">
+<label id="observablehq-sidebar-backdrop" for="observablehq-sidebar-toggle"></label>
+<nav id="observablehq-sidebar">
+  <ol>
+    <label id="observablehq-sidebar-close" for="observablehq-sidebar-toggle"></label>
+    <li class="observablehq-link"><a href="./">Hello Framework</a></li>
+  </ol>
+  <ol>
+    <li class="observablehq-link observablehq-link-active"><a href="./canvas">Canvas</a></li>
+    <li class="observablehq-link"><a href="./canvas2">Canvas2-streamlined</a></li>
+    <li class="observablehq-link"><a href="./clean">Only basic canvas and shapes.</a></li>
+    <li class="observablehq-link"><a href="./d3_focal_length">D3 Focal Length</a></li>
+    <li class="observablehq-link"><a href="./d3_svg">D3 SVG shapes</a></li>
+    <li class="observablehq-link"><a href="./example-dashboard">Example dashboard</a></li>
+    <li class="observablehq-link"><a href="./example-report">Example report</a></li>
+    <li class="observablehq-link"><a href="./gpt">Color Picker and Rectangle</a></li>
+    <li class="observablehq-link"><a href="./linked_sliders">Linked Sliders (Co-dependant Inputs)</a></li>
+    <li class="observablehq-link"><a href="./reactivity">Inputs Reactivity</a></li>
+    <li class="observablehq-link"><a href="./svg_flatten">Flatten.js</a></li>
+    <li class="observablehq-link"><a href="./testpage">This is a test page</a></li>
+    <li class="observablehq-link"><a href="./three_methods">Three Methods</a></li>
+    <li class="observablehq-link"><a href="./weather">Weather report</a></li>
+    <li class="observablehq-link"><a href="./D3_course/D3_Part1">D3 Part1</a></li>
+    <li class="observablehq-link"><a href="./D3_course/D3_Part2">D3 Part2</a></li>
+    <li class="observablehq-link"><a href="./D3_course/D3_Part3">D3 Part3</a></li>
+    <li class="observablehq-link"><a href="./color_scales/color_scales">D3 Color Scales &amp; schemes</a></li>
+    <li class="observablehq-link"><a href="./dataviz/metapi">Metropolitan Museum of Art API</a></li>
+    <li class="observablehq-link"><a href="./flatten.js/flatten_gettingStarted">Flatten Getting Started</a></li>
+    <li class="observablehq-link"><a href="./lenses_optics/focal_length">Notes on Lens Optics</a></li>
+    <li class="observablehq-link"><a href="./color/src/61eaf3946c8b51f0">Color</a></li>
+    <li class="observablehq-link"><a href="./dataviz/WikiData/wikidata-api">Wiki Data API</a></li>
+  </ol>
+</nav>
+<script>{Object.assign(document.createElement("a"),{href:""}).password&&location.replace(location.href);const e=document.querySelector("#observablehq-sidebar"),t=document.querySelector("#observablehq-sidebar-toggle"),r=sessionStorage.getItem("observablehq-sidebar");r?t.checked=r==="true":t.indeterminate=!0;for(const o of document.querySelectorAll("#observablehq-sidebar summary")){const s=o.parentElement;switch(sessionStorage.getItem(`observablehq-sidebar:${o.textContent}`)){case"true":s.open=!0;break;case"false":s.classList.contains("observablehq-section-active")||(s.open=!1);break}}addEventListener("beforeunload",()=>sessionStorage.setItem("observablehq-sidebar-scrolly",`${e.scrollTop}`));const a=sessionStorage.getItem("observablehq-sidebar-scrolly");a!=null&&(e.style.cssText="overflow: hidden;",e.scrollTop=+a,e.style.cssText="");}</script>
+<aside id="observablehq-toc" data-selector="h1:not(:first-of-type)[id], h2:first-child[id], :not(h1) + h2[id]">
+<nav>
+</nav>
+</aside>
+<div id="observablehq-center">
+<main id="observablehq-main" class="observablehq">
+<h1 id="canvas" tabindex="-1"><a class="observablehq-header-anchor" href="#canvas">Canvas</a></h1>
+<div class="observablehq observablehq--block"><!--:ca55edaf:--></div>
+<!-- Setup sliders-->
+<h3 id="rgb-colors" tabindex="-1"><a class="observablehq-header-anchor" href="#rgb-colors">RGB colors</a></h3>
+<div class="observablehq observablehq--block"><!--:d7bee83f:--></div>
+<!-- Setup the canvas code-->
+<div class="observablehq observablehq--block"><!--:dadcdb1d:--></div>
+<p>This is me intersparcing some markdown.</p>
+<!-- Draw on the canvases-->
+<div class="observablehq observablehq--block"><!--:7c7659d0:--></div>
+<p>Adding some more text after the rectangles.</p>
+<div class="observablehq observablehq--block"><!--:1f511a4a:--></div>
+<p>Hmmm.. it seems the canvases are always at te bottom. <br>
+Aha.. fixed that now.</p>
+<div class="observablehq observablehq--block"><!--:43d30fac:--></div>
+<p>This is some more markdown.</p>
+<div class="observablehq observablehq--block"><!--:13c29230:--></div>
+</main>
+<footer id="observablehq-footer">
+<nav><a rel="prev" href="./"><span>Hello Framework</span></a><a rel="next" href="./canvas2"><span>Canvas2-streamlined</span></a></nav>
+<div>Built with <a href="https://observablehq.com/" target="_blank" rel="noopener noreferrer">Observable</a> on <a title="2025-03-14T14:26:55">Mar 14, 2025</a>.</div>
+</footer>
+</div>

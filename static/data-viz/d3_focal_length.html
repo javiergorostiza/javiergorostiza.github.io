@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="generator" content="Observable Framework v1.11.0">
+<title>D3 Focal Length | Hello Framework</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&amp;display=swap" crossorigin>
+<link rel="preload" as="style" href="./_observablehq/theme-air,near-midnight.6e6037b3.css">
+<link rel="preload" as="style" href="./_observablehq/stdlib/inputs.ea9fd553.css">
+<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&amp;display=swap" crossorigin>
+<link rel="stylesheet" type="text/css" href="./_observablehq/theme-air,near-midnight.6e6037b3.css">
+<link rel="stylesheet" type="text/css" href="./_observablehq/stdlib/inputs.ea9fd553.css">
+<link rel="modulepreload" href="./_observablehq/client.cc5c06ae.js">
+<link rel="modulepreload" href="./_observablehq/runtime.c4c9c1af.js">
+<link rel="modulepreload" href="./_observablehq/stdlib.b89f0aee.js">
+<link rel="modulepreload" href="./_observablehq/stdlib/inputs.3a5e99d2.js">
+<link rel="modulepreload" href="./_npm/d3@7.9.0/7055d4c5.js">
+<link rel="modulepreload" href="./_npm/htl@0.3.1/063eb405.js">
+<link rel="modulepreload" href="./_npm/isoformat@0.2.1/c68fbd73.js">
+<link rel="modulepreload" href="./_npm/d3-array@3.2.4/e95f898e.js">
+<link rel="modulepreload" href="./_npm/d3-axis@3.0.0/d44feff9.js">
+<link rel="modulepreload" href="./_npm/d3-brush@3.0.0/5830b12a.js">
+<link rel="modulepreload" href="./_npm/d3-chord@3.0.1/84d7b8e9.js">
+<link rel="modulepreload" href="./_npm/d3-color@3.1.0/2c0cdfa2.js">
+<link rel="modulepreload" href="./_npm/d3-contour@4.0.2/626bedc4.js">
+<link rel="modulepreload" href="./_npm/d3-delaunay@6.0.4/00c41b5d.js">
+<link rel="modulepreload" href="./_npm/d3-dispatch@3.0.1/b5f7cdc6.js">
+<link rel="modulepreload" href="./_npm/d3-drag@3.0.0/b22c5864.js">
+<link rel="modulepreload" href="./_npm/d3-dsv@3.0.1/407f7a1f.js">
+<link rel="modulepreload" href="./_npm/d3-ease@3.0.1/6f15f633.js">
+<link rel="modulepreload" href="./_npm/d3-fetch@3.0.1/ef1ec490.js">
+<link rel="modulepreload" href="./_npm/d3-force@3.0.0/5e1ff060.js">
+<link rel="modulepreload" href="./_npm/d3-format@3.1.0/5851d7ef.js">
+<link rel="modulepreload" href="./_npm/d3-geo@3.1.1/dcd02767.js">
+<link rel="modulepreload" href="./_npm/d3-hierarchy@3.1.2/f1db2593.js">
+<link rel="modulepreload" href="./_npm/d3-interpolate@3.0.1/034b7bcb.js">
+<link rel="modulepreload" href="./_npm/d3-path@3.1.0/4bb53638.js">
+<link rel="modulepreload" href="./_npm/d3-polygon@3.0.1/bbafde58.js">
+<link rel="modulepreload" href="./_npm/d3-quadtree@3.0.1/aa5b35a8.js">
+<link rel="modulepreload" href="./_npm/d3-random@3.0.1/32c7fec2.js">
+<link rel="modulepreload" href="./_npm/d3-scale@4.0.2/567840a0.js">
+<link rel="modulepreload" href="./_npm/d3-scale-chromatic@3.1.0/cf9b720b.js">
+<link rel="modulepreload" href="./_npm/d3-selection@3.0.0/5dcd62f4.js">
+<link rel="modulepreload" href="./_npm/d3-shape@3.2.0/f8e03c56.js">
+<link rel="modulepreload" href="./_npm/d3-time@3.1.0/5bc129e1.js">
+<link rel="modulepreload" href="./_npm/d3-time-format@4.1.0/19c92b44.js">
+<link rel="modulepreload" href="./_npm/d3-timer@3.0.1/f31b5398.js">
+<link rel="modulepreload" href="./_npm/d3-transition@3.0.1/8debb4ba.js">
+<link rel="modulepreload" href="./_npm/d3-zoom@3.0.0/4b0cc581.js">
+<link rel="modulepreload" href="./_npm/internmap@2.0.3/5eed35fd.js">
+<link rel="modulepreload" href="./_npm/delaunator@5.0.1/e67acb27.js">
+<link rel="modulepreload" href="./_npm/robust-predicates@3.0.2/8ac9039b.js">
+<link rel="icon" href="./_file/observable.1af93621.png" type="image/png" sizes="32x32">
+<script type="module">
+
+import {define} from "./_observablehq/client.cc5c06ae.js";
+
+define({id: "0eff742c", outputs: ["Inputs"], body: async () => {
+const Inputs = await import("./_observablehq/stdlib/inputs.3a5e99d2.js");
+
+return {Inputs};
+}});
+
+define({id: "6b8e131e", inputs: ["view","Inputs"], outputs: ["distance"], body: (view,Inputs) => {
+// Create distance Input Sliders:
+const distance = view(Inputs.range([100, 550], {step: 1, label: "distance", value: 300})); 
+return {distance};
+}});
+
+define({id: "4e5958bc", inputs: ["view","distance"], outputs: ["sensor_scale","SquareA","SquareB","RayA","RayB"], body: (view,distance) => {
+const sensor_scale = 2;
+// Define our ImageSensor square:
+const SquareA = {
+    width: 17.3*sensor_scale,
+    height: 13.0*sensor_scale,
+    x: 600,
+    y: 150,
+
+    get cx() {
+        return this.x + this.width/2;
+        },
+    get cy() {
+        return this.y + this.height/2;
+        },
+
+    get ptA() {
+        return { x: this.x, y: this.y }; // Top-left corner
+        },
+    get ptB() {
+        return { x: this.x + this.width, y: this.y }; // Top-right corner
+        },
+    get ptC() {
+        return { x: this.x + this.width, y: this.y + this.height }; // Bottom-right corner
+        },
+    get ptD() {
+        return { x: this.x, y: this.y + this.height }; // Bottom-left corner
+        },
+    };
+
+view(SquareA);
+
+// Define the view of our subject:
+const SquareB = {
+    width: 70,
+    height: 70,
+    x: SquareA.x - distance,
+    y: 150 - 17.5,
+
+    get cx() {
+        return this.x + this.width/2;
+        },
+    get cy() {
+        return this.y + this.height/2;
+        },
+
+    get ptA() {
+        return { x: this.x, y: this.y }; // Top-left corner
+        },
+    get ptB() {
+        return { x: this.x + this.width, y: this.y }; // Top-right corner
+        },
+    get ptC() {
+        return { x: this.x + this.width, y: this.y + this.height }; // Bottom-right corner
+        },
+    get ptD() {
+        return { x: this.x, y: this.y + this.height }; // Bottom-left corner
+        },
+    };
+
+view(SquareB);
+
+// Define our Ray objects:
+const RayA = {
+    ptA: {x: SquareB.ptA.x, y: SquareB.ptA.y},
+    ptB: {x: SquareA.ptC.x, y: SquareA.ptC.y}
+    }
+
+const RayB = {
+    ptA: {x: SquareA.ptB.x, y: SquareA.ptB.y},
+    ptB: {x: SquareB.ptD.x, y: SquareB.ptD.y}
+    }
+return {sensor_scale,SquareA,SquareB,RayA,RayB};
+}});
+
+define({id: "8c83803c", inputs: ["d3","width","view"], outputs: ["height","svgCont1"], body: (d3,width,view) => {
+// Define SVG Canvas:
+const height = 300
+
+const svgCont1 = d3.create("svg")
+                .attr("width", width)
+                .attr("height", height)
+                .style("border", "1px dotted #fcba03");
+
+view(svgCont1.node())
+return {height,svgCont1};
+}});
+
+define({id: "43c6199a", inputs: ["svgCont1","SquareA","SquareB","RayA","RayB"], body: (svgCont1,SquareA,SquareB,RayA,RayB) => {
+// Draw our square A:
+svgCont1
+    .selectAll("rect")
+    .data([SquareA])
+    .join("rect")
+        .attr("width", SquareA.width)
+        .attr("height", SquareA.height)
+        .attr("x", d => d.x)
+        .attr("y", d => d.y)
+        .style("fill", "none")
+        .style("stroke", "blue");
+
+// Draw our square B:
+svgCont1
+    .selectAll("#squareB")
+    .data([SquareB])
+    .join("rect")
+        .attr("id", "squareB")
+        .attr("width", 70)
+        .attr("height", 70)
+        .attr("x", d => d.x)
+        .attr("y", d => d.y)
+        .style("fill", "none")
+        .style("stroke", "blue");
+
+// Draw our rays:
+svgCont1
+    .selectAll("#rayA")
+    .data([SquareA])
+    .join("line")
+        .attr("id", "rayA")
+        .attr("x1", RayA.ptA.x)
+        .attr("y1", RayA.ptA.y)
+        .attr("x2", RayA.ptB.x)
+        .attr("y2", RayA.ptB.y)
+        .style("fill", "none")
+        .style("stroke-width", 2)
+        .style("stroke", "orange");
+
+svgCont1
+    .selectAll("#rayB")
+    .data([SquareA])
+    .join("line")
+        .attr("id", "rayB")
+        .attr("x1", RayB.ptA.x)
+        .attr("y1", RayB.ptA.y)
+        .attr("x2", RayB.ptB.x)
+        .attr("y2", RayB.ptB.y)
+        .style("fill", "none")
+        .style("stroke-width", 2)
+        .style("stroke", "orange");
+}});
+
+define({id: "a86464ab", inputs: ["view","Inputs"], outputs: ["focal_length"], body: (view,Inputs) => {
+// Annotations
+const focal_length = view(Inputs.range([10,200], {step:5, label: "focal length", value: 50}));
+return {focal_length};
+}});
+
+define({id: "6df03e29", inputs: ["RayB","height","focal_length","svgCont1"], outputs: ["focal_length_line"], body: (RayB,height,focal_length,svgCont1) => {
+// Draw Focal Length:
+const focal_length_line = {
+    ptA: {x: RayB.ptA.x, y: height - 50},
+    ptB: {x: RayB.ptA.x - focal_length, y: height - 50}
+    }
+
+// Draw focal length annotation:
+svgCont1
+    .selectAll("#focal_length_line")
+    .data([focal_length_line])
+    .join("line")
+        .attr("id", "focal_length_line")
+        .attr("x1", focal_length_line.ptA.x)
+        .attr("y1", focal_length_line.ptA.y)
+        .attr("x2", focal_length_line.ptB.x)
+        .attr("y2", focal_length_line.ptB.y)
+        .style("fill", "none")
+        .style("stroke-width", 2)
+        .style("stroke", "green");
+return {focal_length_line};
+}});
+
+define({id: "dcd6dff0", outputs: ["lens"], body: () => {
+// Define Thick Lens Shape:
+const lens = "m 40.965621,0.53774133 c -0.769,-0.162 -22.75,0 -22.75,0 C 8.231621,22.025741 2.425621,59.652741 0.71562105,83.787741 -1.159379,110.25175 10.138621,147.72875 18.215621,167.28775 h 22.75 c 8.224,-19.492 18.279,-46.683 19.5,-83.500009 0.787,-23.733 -10.328,-64.36 -19.5,-83.24999967 z"
+return {lens};
+}});
+
+define({id: "b46de94d", inputs: ["svgCont1","lens","focal_length_line","RayA"], body: (svgCont1,lens,focal_length_line,RayA) => {
+// Draw Thick Lens:
+svgCont1
+    .selectAll("#thick_lens")
+    .data([lens])
+    .join("path")
+        .attr("id", "thick_lens")
+        //.attr("transform", `scale(0.75) translate(${focal_length_line.ptB.x}, 100)`)
+        .attr("transform", `scale(0.75) translate(${focal_length_line.ptB.x}, ${RayA.ptA.y})`)
+        .attr("d", lens)
+        .style("fill", "none")
+        .style("stroke-width", 2)
+        .style("stroke", "violet");
+}});
+
+</script>
+<input id="observablehq-sidebar-toggle" type="checkbox" title="Toggle sidebar">
+<label id="observablehq-sidebar-backdrop" for="observablehq-sidebar-toggle"></label>
+<nav id="observablehq-sidebar">
+  <ol>
+    <label id="observablehq-sidebar-close" for="observablehq-sidebar-toggle"></label>
+    <li class="observablehq-link"><a href="./">Hello Framework</a></li>
+  </ol>
+  <ol>
+    <li class="observablehq-link"><a href="./canvas">Canvas</a></li>
+    <li class="observablehq-link"><a href="./canvas2">Canvas2-streamlined</a></li>
+    <li class="observablehq-link"><a href="./clean">Only basic canvas and shapes.</a></li>
+    <li class="observablehq-link observablehq-link-active"><a href="./d3_focal_length">D3 Focal Length</a></li>
+    <li class="observablehq-link"><a href="./d3_svg">D3 SVG shapes</a></li>
+    <li class="observablehq-link"><a href="./example-dashboard">Example dashboard</a></li>
+    <li class="observablehq-link"><a href="./example-report">Example report</a></li>
+    <li class="observablehq-link"><a href="./gpt">Color Picker and Rectangle</a></li>
+    <li class="observablehq-link"><a href="./linked_sliders">Linked Sliders (Co-dependant Inputs)</a></li>
+    <li class="observablehq-link"><a href="./reactivity">Inputs Reactivity</a></li>
+    <li class="observablehq-link"><a href="./svg_flatten">Flatten.js</a></li>
+    <li class="observablehq-link"><a href="./testpage">This is a test page</a></li>
+    <li class="observablehq-link"><a href="./three_methods">Three Methods</a></li>
+    <li class="observablehq-link"><a href="./weather">Weather report</a></li>
+    <li class="observablehq-link"><a href="./D3_course/D3_Part1">D3 Part1</a></li>
+    <li class="observablehq-link"><a href="./D3_course/D3_Part2">D3 Part2</a></li>
+    <li class="observablehq-link"><a href="./D3_course/D3_Part3">D3 Part3</a></li>
+    <li class="observablehq-link"><a href="./color_scales/color_scales">D3 Color Scales &amp; schemes</a></li>
+    <li class="observablehq-link"><a href="./dataviz/metapi">Metropolitan Museum of Art API</a></li>
+    <li class="observablehq-link"><a href="./flatten.js/flatten_gettingStarted">Flatten Getting Started</a></li>
+    <li class="observablehq-link"><a href="./lenses_optics/focal_length">Notes on Lens Optics</a></li>
+    <li class="observablehq-link"><a href="./color/src/61eaf3946c8b51f0">Color</a></li>
+    <li class="observablehq-link"><a href="./dataviz/WikiData/wikidata-api">Wiki Data API</a></li>
+  </ol>
+</nav>
+<script>{Object.assign(document.createElement("a"),{href:""}).password&&location.replace(location.href);const e=document.querySelector("#observablehq-sidebar"),t=document.querySelector("#observablehq-sidebar-toggle"),r=sessionStorage.getItem("observablehq-sidebar");r?t.checked=r==="true":t.indeterminate=!0;for(const o of document.querySelectorAll("#observablehq-sidebar summary")){const s=o.parentElement;switch(sessionStorage.getItem(`observablehq-sidebar:${o.textContent}`)){case"true":s.open=!0;break;case"false":s.classList.contains("observablehq-section-active")||(s.open=!1);break}}addEventListener("beforeunload",()=>sessionStorage.setItem("observablehq-sidebar-scrolly",`${e.scrollTop}`));const a=sessionStorage.getItem("observablehq-sidebar-scrolly");a!=null&&(e.style.cssText="overflow: hidden;",e.scrollTop=+a,e.style.cssText="");}</script>
+<aside id="observablehq-toc" data-selector="h1:not(:first-of-type)[id], h2:first-child[id], :not(h1) + h2[id]">
+<nav>
+</nav>
+</aside>
+<div id="observablehq-center">
+<main id="observablehq-main" class="observablehq">
+<h1 id="d3-focal-length" tabindex="-1"><a class="observablehq-header-anchor" href="#d3-focal-length">D3 Focal Length</a></h1>
+<div class="observablehq observablehq--block"><!--:0eff742c:--></div>
+<div class="observablehq observablehq--block"><!--:6b8e131e:--></div>
+<div class="observablehq observablehq--block"><!--:4e5958bc:--></div>
+<div class="observablehq observablehq--block"><!--:8c83803c:--></div>
+<div class="observablehq observablehq--block"><!--:43c6199a:--></div>
+<div class="observablehq observablehq--block"><!--:a86464ab:--></div>
+<div class="observablehq observablehq--block"><!--:6df03e29:--></div>
+<div class="observablehq observablehq--block"><!--:dcd6dff0:--></div>
+<div class="observablehq observablehq--block"><!--:b46de94d:--></div>
+</main>
+<footer id="observablehq-footer">
+<nav><a rel="prev" href="./clean"><span>Only basic canvas and shapes.</span></a><a rel="next" href="./d3_svg"><span>D3 SVG shapes</span></a></nav>
+<div>Built with <a href="https://observablehq.com/" target="_blank" rel="noopener noreferrer">Observable</a> on <a title="2025-03-14T14:26:55">Mar 14, 2025</a>.</div>
+</footer>
+</div>

@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="generator" content="Observable Framework v1.11.0">
+<title>Wiki Data API | Hello Framework</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&amp;display=swap" crossorigin>
+<link rel="preload" as="style" href="../../_observablehq/theme-air,near-midnight.6e6037b3.css">
+<link rel="preload" as="style" href="../../_observablehq/stdlib/inputs.ea9fd553.css">
+<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&amp;display=swap" crossorigin>
+<link rel="stylesheet" type="text/css" href="../../_observablehq/theme-air,near-midnight.6e6037b3.css">
+<link rel="stylesheet" type="text/css" href="../../_observablehq/stdlib/inputs.ea9fd553.css">
+<link rel="modulepreload" href="../../_observablehq/client.cc5c06ae.js">
+<link rel="modulepreload" href="../../_observablehq/runtime.c4c9c1af.js">
+<link rel="modulepreload" href="../../_observablehq/stdlib.b89f0aee.js">
+<link rel="modulepreload" href="../../_npm/d3@7.9.0/7055d4c5.js">
+<link rel="modulepreload" href="../../_observablehq/stdlib/inputs.3a5e99d2.js">
+<link rel="modulepreload" href="../../_npm/htl@0.3.1/063eb405.js">
+<link rel="modulepreload" href="../../_npm/isoformat@0.2.1/c68fbd73.js">
+<link rel="modulepreload" href="../../_npm/d3-array@3.2.4/e95f898e.js">
+<link rel="modulepreload" href="../../_npm/d3-axis@3.0.0/d44feff9.js">
+<link rel="modulepreload" href="../../_npm/d3-brush@3.0.0/5830b12a.js">
+<link rel="modulepreload" href="../../_npm/d3-chord@3.0.1/84d7b8e9.js">
+<link rel="modulepreload" href="../../_npm/d3-color@3.1.0/2c0cdfa2.js">
+<link rel="modulepreload" href="../../_npm/d3-contour@4.0.2/626bedc4.js">
+<link rel="modulepreload" href="../../_npm/d3-delaunay@6.0.4/00c41b5d.js">
+<link rel="modulepreload" href="../../_npm/d3-dispatch@3.0.1/b5f7cdc6.js">
+<link rel="modulepreload" href="../../_npm/d3-drag@3.0.0/b22c5864.js">
+<link rel="modulepreload" href="../../_npm/d3-dsv@3.0.1/407f7a1f.js">
+<link rel="modulepreload" href="../../_npm/d3-ease@3.0.1/6f15f633.js">
+<link rel="modulepreload" href="../../_npm/d3-fetch@3.0.1/ef1ec490.js">
+<link rel="modulepreload" href="../../_npm/d3-force@3.0.0/5e1ff060.js">
+<link rel="modulepreload" href="../../_npm/d3-format@3.1.0/5851d7ef.js">
+<link rel="modulepreload" href="../../_npm/d3-geo@3.1.1/dcd02767.js">
+<link rel="modulepreload" href="../../_npm/d3-hierarchy@3.1.2/f1db2593.js">
+<link rel="modulepreload" href="../../_npm/d3-interpolate@3.0.1/034b7bcb.js">
+<link rel="modulepreload" href="../../_npm/d3-path@3.1.0/4bb53638.js">
+<link rel="modulepreload" href="../../_npm/d3-polygon@3.0.1/bbafde58.js">
+<link rel="modulepreload" href="../../_npm/d3-quadtree@3.0.1/aa5b35a8.js">
+<link rel="modulepreload" href="../../_npm/d3-random@3.0.1/32c7fec2.js">
+<link rel="modulepreload" href="../../_npm/d3-scale@4.0.2/567840a0.js">
+<link rel="modulepreload" href="../../_npm/d3-scale-chromatic@3.1.0/cf9b720b.js">
+<link rel="modulepreload" href="../../_npm/d3-selection@3.0.0/5dcd62f4.js">
+<link rel="modulepreload" href="../../_npm/d3-shape@3.2.0/f8e03c56.js">
+<link rel="modulepreload" href="../../_npm/d3-time@3.1.0/5bc129e1.js">
+<link rel="modulepreload" href="../../_npm/d3-time-format@4.1.0/19c92b44.js">
+<link rel="modulepreload" href="../../_npm/d3-timer@3.0.1/f31b5398.js">
+<link rel="modulepreload" href="../../_npm/d3-transition@3.0.1/8debb4ba.js">
+<link rel="modulepreload" href="../../_npm/d3-zoom@3.0.0/4b0cc581.js">
+<link rel="modulepreload" href="../../_npm/internmap@2.0.3/5eed35fd.js">
+<link rel="modulepreload" href="../../_npm/delaunator@5.0.1/e67acb27.js">
+<link rel="modulepreload" href="../../_npm/robust-predicates@3.0.2/8ac9039b.js">
+<link rel="icon" href="../../_file/observable.1af93621.png" type="image/png" sizes="32x32">
+<script type="module">
+
+import {define} from "../../_observablehq/client.cc5c06ae.js";
+
+define({id: "e34f114d", inputs: ["locationData_VanGogh","view"], outputs: ["vangoghIDs"], body: (locationData_VanGogh,view) => {
+const vangoghIDs= locationData_VanGogh.map(item => item.locationID);
+view(vangoghIDs)
+return {vangoghIDs};
+}});
+
+define({id: "3fb58496", inputs: ["sanitizeDate"], outputs: ["getWorkLocations"], body: (sanitizeDate) => {
+// --------------------------------------------------------------------------------------------------------------------
+// Define a function to fetch work locations for a given artist ID
+async function getWorkLocations(artistID) {
+  // Fetch artist information:
+  const artistResponse = await fetch(
+    `https://www.wikidata.org/w/api.php?action=wbgetentities&ids=${artistID}&props=claims&format=json&origin=*`
+  );
+  const artistInfo= await artistResponse.json();
+
+  // Extract bulk location statements (P937) from artistInfo:
+  const locationStatements = artistInfo.entities[artistID].claims.P937 || [];
+
+  // Define a constant-name for the data which we want to export.
+  // Map over each locationStatement to get locationID and time data:
+  const locationData = await Promise.all(
+    locationStatements.map(async (statement) => {
+      // Get locationID:
+      const locationID = statement.mainsnak.datavalue.value.id;
+
+        // Fetch locationInfo and extract name and coordiantes (P625):
+        const locationResponse = await fetch(
+          `https://www.wikidata.org/w/api.php?action=wbgetentities&ids=${locationID}&props=labels|claims&languages=en&format=json&origin=*`
+        );
+        const locationInfo = await locationResponse.json();
+        const locationName = locationInfo.entities[locationID].labels?.en?.value || "Unknown Location";
+        const coordinates  = locationInfo.entities[locationID].claims.P625?.[0].mainsnak.datavalue.value || null;
+        const latitude = coordinates?.latitude;
+        const longitude = coordinates?.longitude;
+
+      // Get time data (P580-P582, P585) if it exists:
+      const startTime = statement.qualifiers?.P580?.[0]?.datavalue?.value?.time || null;
+      const endTime = statement.qualifiers?.P582?.[0]?.datavalue?.value?.time || null;
+      const singleDate = statement.qualifiers?.P585?.[0]?.datavalue?.value?.time || null;
+
+      return {
+        locationID,
+        locationName,
+        latitude,
+        longitude,
+        startTime: sanitizeDate(startTime),
+        endTime: sanitizeDate(endTime),
+        singleDate: sanitizeDate(singleDate),
+      };
+    })
+  );
+
+  return locationData;
+}
+return {getWorkLocations};
+}});
+
+define({id: "609bb0a5", outputs: ["sanitizeDate"], body: () => {
+// Helper function to sanitize non-standard Wikidata dates
+function sanitizeDate(wikidataDate) {
+  if (!wikidataDate) return null;                                           // Handle null or undefined dates
+  const cleanupDate = wikidataDate.replace(/^(\+|-)/, "");                  // Remove leading '+' or '-'
+  const [year, month, day] = cleanupDate.split("T")[0].split("-");          // Split into components
+  const validMonth = month ? Math.max(1, parseInt(month, 10)) - 1 : 0;      // Ensure valid month (0-based)
+  const validDay = day && day !== "00" ? parseInt(day, 10) : 1;             // Default day to 1 if '00'
+  return new Date(Date.UTC(year, validMonth, validDay));                    // Return valid Date object
+}
+return {sanitizeDate};
+}});
+
+define({id: "6a2ab698", inputs: ["locationData_VanGogh","view"], outputs: ["vangoghLocations"], body: (locationData_VanGogh,view) => {
+const vangoghLocations = locationData_VanGogh.map(item => item.locationName);
+view(vangoghLocations)
+return {vangoghLocations};
+}});
+
+define({id: "cafdbded", inputs: ["getWorkLocations","view"], outputs: ["locationData_VanGogh"], body: async (getWorkLocations,view) => {
+// Call the function and handle the data outside
+const locationData_VanGogh = await getWorkLocations('Q5582');
+view(locationData_VanGogh);
+return {locationData_VanGogh};
+}});
+
+define({id: "5031705e", inputs: ["getWorkLocations","view"], outputs: ["locationData_Gauguin"], body: async (getWorkLocations,view) => {
+const locationData_Gauguin = await getWorkLocations('Q37693');
+view(locationData_Gauguin);
+return {locationData_Gauguin};
+}});
+
+define({id: "b4d20ef2", inputs: ["d3","width","view"], outputs: ["height","svgCont1"], body: (d3,width,view) => {
+// Setup SVG container:
+const height = 600
+const svgCont1 = d3.create("svg")
+                    .attr("width", width)
+                    .attr("height", height)
+
+view(svgCont1.node())
+return {height,svgCont1};
+}});
+
+define({id: "704b3d98", inputs: ["d3","width","height","svgCont1"], outputs: ["projection","path","geojson","markers"], body: async (d3,width,height,svgCont1) => {
+// Set up a projection:
+const projection = d3.geoConicEquidistant()
+                        .center([10, 50])                       // Center on longitude, latitude of Europe
+                        //.rotate([-10, 0])                     // Adjust rotation to make Europe more central
+                        .scale(2000)                             // Scale for the map size
+                        .translate([width / 2, height / 2]);    // Center map within the svg container.
+
+// Define a geoPath generator using the projection:
+const path = d3.geoPath().projection(projection);
+
+// Load GeoJSON data (use a sample or external URL):
+const geojson = await fetch('https://raw.githubusercontent.com/datasets/geo-countries/master/data/countries.geojson')
+  .then(response => response.json());
+
+// Draw the map using GeoJSON data
+svgCont1
+  .selectAll("path")
+  .data(geojson.features)
+  .enter()
+  .append("path")
+  .attr("d", path)
+  .attr("fill", "lightblue")
+  .attr("stroke", "white")
+  .attr("stroke-width", 1.0);
+
+// Create a variable to hold the markers for artist locations
+let markers = [];
+return {projection,path,geojson,markers};
+}});
+
+define({id: "05bd6a8c", inputs: ["svgCont1","locationData_VanGogh","projection"], outputs: ["artistLocations"], body: (svgCont1,locationData_VanGogh,projection) => {
+// Sample artist location data (longitude, latitude)
+const artistLocations = [
+  { name: "Van Gogh", longitude: 4.821, latitude: 52.368 },
+  { name: "Gauguin", longitude: -73.575, latitude: 18.070 }
+];
+
+// Add circles for each artist location (Van Gogh, first)
+svgCont1
+  .selectAll("circle")
+  .data(locationData_VanGogh)
+  .enter()
+  .append("circle")
+  .attr("cx", d => projection([d.longitude, d.latitude])[0]) // Longitude to x
+  .attr("cy", d => projection([d.longitude, d.latitude])[1]) // Latitude to y
+  .attr("r", 5)
+  .attr("fill", "red")
+  .attr("stroke", "black")
+  .attr("stroke-width", 1)
+  .append("title") // Add a tooltip with artist name
+  .text(d => d.name);
+return {artistLocations};
+}});
+
+define({id: "9267cd32", inputs: ["width","d3","locationData_VanGogh","multiplier","svgCont1","view"], outputs: ["timelineWidth","timelineHeight","svgTimeline","startDate","endDate","timeScale","locationColorScale","xAxis","cursor"], body: (width,d3,locationData_VanGogh,multiplier,svgCont1,view) => {
+// ---- Timeline ----------------------------------------
+// 1. Define dimensions and setup for the timeline.
+const timelineWidth = width; // Adjust based on your layout
+const timelineHeight = 100;
+
+const svgTimeline = d3.create("svg")
+                        .attr("width", timelineWidth)
+                        .attr("height", timelineHeight);
+
+// 2. Define the date range and scale.
+const startDate = new Date(1880, 0, 1);  // Start date
+const endDate = new Date(1900, 0, 1);    // End date
+// Time Scale
+const timeScale = d3.scaleTime()
+  .domain([startDate, endDate])
+  .range([50, timelineWidth - 50]);
+
+// 3. Create a color scale for our locations:
+const locationColorScale = d3.scaleOrdinal()
+  .domain(locationData_VanGogh.map(d => d.locationName)) // Use locationName as the domain
+  //.range(d3.schemeObservable10); // Use a predefined color scheme
+  .range(d3.schemeRdYlGn[9]);
+
+// Draw the timeline axis.
+const xAxis = d3.axisBottom(timeScale)
+  .ticks(d3.timeYear.every(5)) // Customize tick frequency
+  .tickFormat(d3.timeFormat("%Y"));
+
+svgTimeline.append("g")
+  .attr("transform", `translate(0, ${timelineHeight / 2})`)
+  .call(xAxis);
+
+// Add time period bars for each location
+svgTimeline.selectAll("rect")
+  .data(locationData_VanGogh)
+  .enter()
+  .append("rect")
+  //.attr("x", d => timeScale(new Date(d.startTime)))
+  .attr("x", d => {
+    console.log("Start time:", d.startTime);  // Debugging start time
+    const xPos = timeScale(d.startTime);
+    console.log("X position for start time:", xPos);  // Debugging x position
+    return xPos;
+  })
+  .attr("y", (d,i) => {
+    return (i * multiplier) + (timelineHeight / 4)
+  })
+  //.attr("width", d => timeScale(new Date(d.endTime)) - timeScale(new Date(d.startTime)))
+  .attr("width", d => {
+    const widthValue = timeScale(d.endTime) - timeScale(d.startTime);
+    console.log("Width for time period:", widthValue);  // Debugging width
+    return widthValue;
+  })
+  .attr("height", timelineHeight / 8)
+  //.attr("fill", "rgba(0, 0, 155, 0.7)")  // Semi-transparent blue for time periods
+  .attr("fill", d => locationColorScale(d.locationName))  // Use our color scale for fill
+  .attr("stroke", "blue");
+
+// 4. Add a draggable cursor.
+const cursor = svgTimeline.append("line")
+  .attr("y1", timelineHeight / 4)
+  .attr("y2", (3 * timelineHeight) / 4)
+  .attr("x1", timeScale(startDate))
+  .attr("x2", timeScale(startDate))
+  .attr("stroke", "steelblue")
+  .attr("stroke-width", 3)
+  .call(
+    d3.drag()
+      .on("drag", function (event) {
+        // Update cursor position.
+        const x = Math.min(Math.max(event.x, timeScale(startDate)), timeScale(endDate));
+        cursor.attr("x1", x).attr("x2", x);
+
+        // Get the current date based on cursor position.
+        const currentDate = timeScale.invert(x);
+
+        // 4. Update markers based on date.
+        svgCont1.selectAll("circle")
+          .attr("r", d => {
+            // Check if the current date is within the work period.
+            const inRange =
+              (!d.startTime || new Date(d.startTime) <= currentDate) &&
+              (!d.endTime || new Date(d.endTime) >= currentDate) &&
+              (!d.singleDate || new Date(d.singleDate).getFullYear() === currentDate.getFullYear());
+
+            return inRange ? 10 : 5;  // Increase size if in range.
+          });
+      })
+  );
+
+// Display the timeline.
+view(svgTimeline.node());
+return {timelineWidth,timelineHeight,svgTimeline,startDate,endDate,timeScale,locationColorScale,xAxis,cursor};
+}});
+
+define({id: "c231d4f3", inputs: ["Inputs","view"], outputs: ["multiplier"], body: (Inputs,view) => {
+const multiplier = Inputs.range([0, 10]);
+view(multiplier)
+return {multiplier};
+}});
+
+</script>
+<input id="observablehq-sidebar-toggle" type="checkbox" title="Toggle sidebar">
+<label id="observablehq-sidebar-backdrop" for="observablehq-sidebar-toggle"></label>
+<nav id="observablehq-sidebar">
+  <ol>
+    <label id="observablehq-sidebar-close" for="observablehq-sidebar-toggle"></label>
+    <li class="observablehq-link"><a href="../../">Hello Framework</a></li>
+  </ol>
+  <ol>
+    <li class="observablehq-link"><a href="../../canvas">Canvas</a></li>
+    <li class="observablehq-link"><a href="../../canvas2">Canvas2-streamlined</a></li>
+    <li class="observablehq-link"><a href="../../clean">Only basic canvas and shapes.</a></li>
+    <li class="observablehq-link"><a href="../../d3_focal_length">D3 Focal Length</a></li>
+    <li class="observablehq-link"><a href="../../d3_svg">D3 SVG shapes</a></li>
+    <li class="observablehq-link"><a href="../../example-dashboard">Example dashboard</a></li>
+    <li class="observablehq-link"><a href="../../example-report">Example report</a></li>
+    <li class="observablehq-link"><a href="../../gpt">Color Picker and Rectangle</a></li>
+    <li class="observablehq-link"><a href="../../linked_sliders">Linked Sliders (Co-dependant Inputs)</a></li>
+    <li class="observablehq-link"><a href="../../reactivity">Inputs Reactivity</a></li>
+    <li class="observablehq-link"><a href="../../svg_flatten">Flatten.js</a></li>
+    <li class="observablehq-link"><a href="../../testpage">This is a test page</a></li>
+    <li class="observablehq-link"><a href="../../three_methods">Three Methods</a></li>
+    <li class="observablehq-link"><a href="../../weather">Weather report</a></li>
+    <li class="observablehq-link"><a href="../../D3_course/D3_Part1">D3 Part1</a></li>
+    <li class="observablehq-link"><a href="../../D3_course/D3_Part2">D3 Part2</a></li>
+    <li class="observablehq-link"><a href="../../D3_course/D3_Part3">D3 Part3</a></li>
+    <li class="observablehq-link"><a href="../../color_scales/color_scales">D3 Color Scales &amp; schemes</a></li>
+    <li class="observablehq-link"><a href="../metapi">Metropolitan Museum of Art API</a></li>
+    <li class="observablehq-link"><a href="../../flatten.js/flatten_gettingStarted">Flatten Getting Started</a></li>
+    <li class="observablehq-link"><a href="../../lenses_optics/focal_length">Notes on Lens Optics</a></li>
+    <li class="observablehq-link"><a href="../../color/src/61eaf3946c8b51f0">Color</a></li>
+    <li class="observablehq-link observablehq-link-active"><a href="./wikidata-api">Wiki Data API</a></li>
+  </ol>
+</nav>
+<script>{Object.assign(document.createElement("a"),{href:""}).password&&location.replace(location.href);const e=document.querySelector("#observablehq-sidebar"),t=document.querySelector("#observablehq-sidebar-toggle"),r=sessionStorage.getItem("observablehq-sidebar");r?t.checked=r==="true":t.indeterminate=!0;for(const o of document.querySelectorAll("#observablehq-sidebar summary")){const s=o.parentElement;switch(sessionStorage.getItem(`observablehq-sidebar:${o.textContent}`)){case"true":s.open=!0;break;case"false":s.classList.contains("observablehq-section-active")||(s.open=!1);break}}addEventListener("beforeunload",()=>sessionStorage.setItem("observablehq-sidebar-scrolly",`${e.scrollTop}`));const a=sessionStorage.getItem("observablehq-sidebar-scrolly");a!=null&&(e.style.cssText="overflow: hidden;",e.scrollTop=+a,e.style.cssText="");}</script>
+<aside id="observablehq-toc" data-selector="h1:not(:first-of-type)[id], h2:first-child[id], :not(h1) + h2[id]">
+<nav>
+<div>Contents</div>
+<ol>
+<li class="observablehq-secondary-link"><a href="#the-wiki-data-api">The WikiData API</a></li>
+<li class="observablehq-secondary-link"><a href="#now-lets-setup-our-map">Now let&#x27;s setup our map</a></li>
+<li class="observablehq-secondary-link"><a href="#making-of">Making of</a></li>
+</ol>
+</nav>
+</aside>
+<div id="observablehq-center">
+<main id="observablehq-main" class="observablehq">
+<h1 id="wiki-data-api" tabindex="-1"><a class="observablehq-header-anchor" href="#wiki-data-api">Wiki Data API</a></h1>
+<p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Vincent_van_Gogh_-_Self-Portrait_-_Google_Art_Project_(454045).jpg/220px-Vincent_van_Gogh_-_Self-Portrait_-_Google_Art_Project_(454045).jpg" alt="vangogh" title="Van Gogh">
+&nbsp;
+&nbsp;
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/Wikidata-logo.png/1200px-Wikidata-logo.png" alt="WikiData" width="250"></p>
+<h2 id="the-wiki-data-api" tabindex="-1"><a class="observablehq-header-anchor" href="#the-wiki-data-api">The WikiData API</a></h2>
+<p>Let's have a look at what kind of information the WikiData page has on a particular artist:
+<a href="https://www.wikidata.org/wiki/Q5582" target="_blank" rel="noopener noreferrer">https://www.wikidata.org/wiki/Q5582</a></p>
+<p>We can query the WikiData API for the information it has on Vincent Van Gogh.
+Van Gogh has an entity ID of Q5582.</p>
+<pre><code>curl 'https://www.wikidata.org/w/api.php?action=wbgetentities&amp;ids=Q5582&amp;props=claims&amp;format=json' | jq
+</code></pre>
+<p>This gives us a bunch of different properties but to much to be useful to the naked eye without filtering.
+(Especially cause each claim/property is a wikimedia entity in itself.)<br>
+The 'work location' property has an property ID of P937.</p>
+<p>So we can filter this further with the jq command:</p>
+<pre><code>curl 'https://www.wikidata.org/w/api.php?action=wbgetentities&amp;ids=Q5582&amp;props=claims&amp;format=json' | jq '.entities.Q5582.claims.P937[].mainsnak.datavalue.value.id'
+</code></pre>
+<p>which gives us:</p>
+<div class="observablehq observablehq--block"><!--:e34f114d:--></div>
+<p><img src="../../_file/dataviz/WikiData/img/gpt_wikidataAPI.117383c0.png" alt="Gpt prompt" title="GPT prompt"></p>
+<h3 id="function-code" tabindex="-1"><a class="observablehq-header-anchor" href="#function-code">Function Code:</a></h3>
+<p><img src="../../_file/dataviz/WikiData/img/getLocations_function.a2d0192a.png" alt="//Code of our WikiData function//" title="function screenshot"></p>
+<div class="observablehq observablehq--block"><!--:3fb58496:--></div>
+<div class="observablehq observablehq--block"><!--:609bb0a5:--></div>
+<p>We can now display the names of our locations:</p>
+<div class="observablehq observablehq--block"><!--:6a2ab698:--></div>
+<p>And here is the whole data for Van Gogh, including location, date and coordinates.
+Van Gogh (Q5582):</p>
+<div class="observablehq observablehq--block"><!--:cafdbded:--></div>
+<p>Let's try some different artists.<br>
+Gauguin (Q37693):</p>
+<div class="observablehq observablehq--block"><!--:5031705e:--></div>
+<h2 id="now-lets-setup-our-map" tabindex="-1"><a class="observablehq-header-anchor" href="#now-lets-setup-our-map">Now let's setup our map</a></h2>
+<div class="observablehq observablehq--block"><!--:b4d20ef2:--></div>
+<div class="observablehq observablehq--block"><!--:704b3d98:--></div>
+<div class="observablehq observablehq--block"><!--:05bd6a8c:--></div>
+<div class="observablehq observablehq--block"><!--:9267cd32:--></div>
+<div class="observablehq observablehq--block"><!--:c231d4f3:--></div>
+<h2 id="making-of" tabindex="-1"><a class="observablehq-header-anchor" href="#making-of">Making of</a></h2>
+<p>We initially had some problems with how the time data was fetched from the API:
+<img src="../../_file/dataviz/WikiData/img/undefined_times.084412c9.png" alt="undefined times" title="undefined times">
+<img src="../../_file/dataviz/WikiData/img/gregorian_times.40c06d4b.png" alt="gregorian_times" title="gregorian times">
+<img src="../../_file/dataviz/WikiData/img/fixed_times.6ea35d6c.png" alt="fixed" title="fixed times"></p>
+<p><img src="../../_file/dataviz/WikiData/img/moreartists_prompt.6a45da7b.png" alt="get more artists" title="more artists please">
+<img src="../../_file/dataviz/WikiData/img/WDQS.53ff23d6.png" alt="Wikidata Query Service" title="WikiData Query Service"></p>
+</main>
+<footer id="observablehq-footer">
+<nav><a rel="prev" href="../../color/src/61eaf3946c8b51f0"><span>Color</span></a></nav>
+<div>Built with <a href="https://observablehq.com/" target="_blank" rel="noopener noreferrer">Observable</a> on <a title="2025-03-14T14:26:55">Mar 14, 2025</a>.</div>
+</footer>
+</div>
