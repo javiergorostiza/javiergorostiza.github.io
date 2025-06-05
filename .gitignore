@@ -3,3 +3,5 @@ hugo_stats.json
 package.json
 package-lock.json
 package.hugo.json
+resources/
+assets/css
