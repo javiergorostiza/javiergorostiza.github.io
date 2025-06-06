@@ -97,7 +97,7 @@ vercelAnalytics = false
 # google analytics and tag manager. to enable, set "enabled" to true
 # and add the tracking code (UA-something for analytics, GTM-something for tag manager)
 [params.analytics.googleAnalytics]
-code = "QG5JH2QDB7"
+code = "G-QG5JH2QDB7"
 enabled = true
 [params.analytics.googleTagManager]
 code = "GTM-XXXXX"
