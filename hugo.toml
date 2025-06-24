@@ -3,6 +3,7 @@ title = "Javier Gorostiza"
 languageCode = "en"
 
 uglyurls = false
+disablePathToLower = true
 
 # Exclude footer section from generating list pages (index.html and index.xml)
 [outputs]
@@ -66,7 +67,7 @@ target = "assets/css/bootstrap-print.css"
 
 [params]
 title = 'Javier Gorostiza - paramstitle Personal Website'
-description = 'This is the personal website / CV / Blog / portfolio for Javier Gorostiza.'
+description = 'This is the personal website, CV, Blog and Portfolio of Javier Gorostiza.'
 images = ['/img/og-img.png']
 #sections = [
 #  "cover",
@@ -149,7 +150,7 @@ weight = 5
 
 [[languages.en.menus.header]]
 name = "Portfolio"
-URL = "/portfolio"
+URL = "/docs/J.Gorostiza_DossierFabricacionDigital.pdf"
 weight = 6
 
 

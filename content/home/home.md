@@ -19,7 +19,7 @@ draft = false
         {{< link icon="square-github" url="https://github.com/javiergorostiza" >}}
         {{< link icon="square-arrow-up-right" url="https://docta.ucm.es/search?query=dc.contributor.author:%22Javier%20Gorostiza%22~5" >}}
         {{< link icon="square-xing" url="https://academia.edu/javiergorostiza" >}}
-        {{< link icon="file-pdf" url="https://academia.edu/javiergorostiza" >}}
+        {{< link icon="file-pdf" url="/docs/J.Gorostiza_DossierFabricacionDigital.pdf" >}}
     {{< /platform-links >}}
 {{< /about-section >}}
 
