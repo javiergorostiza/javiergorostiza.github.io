@@ -28,6 +28,3 @@ draft = false
 
 {{< client-and-work-section
     title="A selection of my work" >}} 
-
-{{< testimonial-section
-    title="What they say about me" >}}
